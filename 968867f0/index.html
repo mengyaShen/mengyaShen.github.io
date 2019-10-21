@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021161210473.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021161225137.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021161233292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-10-21T08:24:49.696Z">
+<meta property="og:updated_time" content="2019-10-21T08:31:58.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Vision | ImageFiltering">
 <meta name="twitter:description" content="一张图片—&amp;gt;feature detection 特征检测（e.g.：DoG）—&amp;gt;feature description 特征描述（e.g.：SIFT）—&amp;gt;Matching/Indexing/Detection 匹配/索引/检测&amp;lt;—database of local  descriptors 本地描述符数据库 Image filtering 图像滤波过滤的三种观点：  空域">
@@ -483,12 +483,12 @@
 <li>从图像中提取信息<br>纹理、边缘、特征点等。</li>
 <li>检测模式<br>模板匹配</li>
 </ol>
-<h2 id="二、linear-filters-线性滤波器"><a href="#二、linear-filters-线性滤波器" class="headerlink" title="二、linear filters 线性滤波器"></a>二、linear filters 线性滤波器</h2><p><img src="https://img-blog.csdnimg.cn/20191021155654409.png" alt="线性滤波器"><br>没有变化<br><img src="https://img-blog.csdnimg.cn/20191021155709314.png" alt="线性滤波器"><br>按1像素左移<br><img src="https://img-blog.csdnimg.cn/20191021155753112.png" alt="线性滤波器"><br>垂直边缘（绝对值）<br><img src="https://img-blog.csdnimg.cn/20191021155920820.png" alt="线性滤波器"><br>水平边缘（绝对值）<br><img src="https://img-blog.csdnimg.cn/20191021160050769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="线性滤波器"><br>锐化滤波器——突出与当地平均水平的差异</p>
+<h2 id="二、linear-filters-线性滤波器"><a href="#二、linear-filters-线性滤波器" class="headerlink" title="二、linear filters 线性滤波器"></a>二、linear filters 线性滤波器</h2><p>没有变化<br><img src="https://img-blog.csdnimg.cn/20191021155654409.png" alt="线性滤波器"><br>按1像素左移<br><img src="https://img-blog.csdnimg.cn/20191021155709314.png" alt="线性滤波器"><br>垂直边缘（绝对值）<br><img src="https://img-blog.csdnimg.cn/20191021155753112.png" alt="线性滤波器"><br>水平边缘（绝对值）<br><img src="https://img-blog.csdnimg.cn/20191021155920820.png" alt="线性滤波器"><br>锐化滤波器——突出与当地平均水平的差异<br><img src="https://img-blog.csdnimg.cn/20191021160050769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="线性滤波器"></p>
 <h2 id="三、Gaussian-filter-高斯滤波器"><a href="#三、Gaussian-filter-高斯滤波器" class="headerlink" title="三、Gaussian filter 高斯滤波器"></a>三、Gaussian filter 高斯滤波器</h2><p>邻近像素的加权贡献<br><img src="https://img-blog.csdnimg.cn/20191021160608192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="高斯滤波器"></p>
 <h3 id="高斯滤波器的可分性"><a href="#高斯滤波器的可分性" class="headerlink" title="高斯滤波器的可分性"></a>高斯滤波器的可分性</h3><p><img src="https://img-blog.csdnimg.cn/20191021160729979.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="高斯滤波器的可分性"><br>可分性示例：</p>
 <p>2D convolution(center location only)<br>二维卷积（仅中心位置）<br><img src="https://img-blog.csdnimg.cn/20191021161210473.png" alt="可分性示例"><br>The filter factorsinto a product of 1Dfilters:<br>过滤因子为1的乘积：<br><img src="https://img-blog.csdnimg.cn/20191021161225137.png" alt="可分性示例"><br>Perform convolutionalong rows:<br>执行卷积长行：<br>Followed by convolutionalong the remaining column:<br>然后对其余列进行卷积：<br><img src="https://img-blog.csdnimg.cn/20191021161233292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="可分性示例"><br>为什么分离性在实践中有用？</p>
 <ol>
-<li>MXN图像，PXQ过滤器<br>二维卷积：<del>MNPQ乘加<br>可分二维：</del>MN（P+Q）乘加</li>
+<li>MXN图像，PXQ过滤器<br>二维卷积：MNPQ乘加<br>可分二维：MN（P+Q）乘加</li>
 <li>加速=PQ/（P+Q）<br>9x9过滤器大约快4.5倍</li>
 </ol>
 <p>过滤器应该有多大？</p>
