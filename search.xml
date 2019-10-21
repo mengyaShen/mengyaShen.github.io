@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Computer Vision | InterestPointsAndCorners]]></title>
+    <url>%2F9595090%2F</url>
+    <content type="text"><![CDATA[Filtering——&gt;Edges——&gt;Corners滤波器——&gt;边沿——&gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。 视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机、AR）索引与数据库检索目标识别 不变局部特征检测可重复且独特的点。即，对图像变换不变性：外观变化（亮度、照度）；几何变化（平移、旋转、缩放）。 示例应用——全景接合1）检测（Detection）：找到一组与众不同的关键点。2）描述（Description）：提取每个兴趣点的特征描述作为向量。3）匹配（Matching）：计算特征向量之间的距离以找到对应关系。 好的特征：1）重复性尽管存在几何和光度变换，但在多个图像中可以找到相同的特征。2）显著性每个特征都很独特。3）紧凑性和效率比图像像素少很多特征。4）局部一个特征占据了图像相对较小的区域；对杂波和遮挡鲁棒。 Corner Detection 角点检测我们可以透过一扇小窗户来认识这一点。我们希望窗口向任何方向移动，以使强度发生很大变化。 基于自相关的角点检测 变换[u，v]：通过改变窗口w（x，y）的外观： 关键特性：在拐角区域，图像梯度有两个或多个主方向角落是可重复和独特的。 用二次曲面局部逼近E（u，v）： 一个函数f可以用它在一个点a的无穷级数表示：当我们关心窗口中心时，我们设置a=0（麦克劳林系列）。f(x)＝e^x以f(0)为中心的逼近 角点检测：数学 通过二阶泰勒展开给出了（0，0）邻域中E（u，v）的局部二次逼近： E(u，v)关于(0,0)的二阶泰勒展开式：二次近似简化为:其中M是根据图像导数计算的二阶矩矩阵： 角点作为独特的兴趣点： 图像导数的2x 2矩阵（在点附近平均） 二阶矩矩阵的解释 E(u,v)的形状：E(u,v)的水平“切片”：M的对角化：因此，E(u,v)的形状为椭圆基于M特征值的图像点分类 λ1 and λ2 很小，几乎在所有方向上都是恒定的。 线性代数： Harris 角点探测器0）输入图像：我们要计算每个像素的M；1）计算图像导数（可选，先模糊）；2）用导数平方计算M分量；3）宽度为σ的高斯滤波器g()；4）计算转角5）C上选择高转角的阈值6）非极大值抑制拾取峰 位置对光度变换是不变的，对几何变换是协变的吗？不变性：图像被变换，角点位置不变；协方差：如果我们有相同图像的两个变换版本，则应在相应位置检测特征。]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>计算机视觉</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Computer Vision | ImageFiltering]]></title>
     <url>%2F968867f0%2F</url>
     <content type="text"><![CDATA[一张图片—&gt;feature detection 特征检测（e.g.：DoG）—&gt;feature description 特征描述（e.g.：SIFT）—&gt;Matching/Indexing/Detection 匹配/索引/检测&lt;—database of local descriptors 本地描述符数据库 Image filtering 图像滤波过滤的三种观点： 空域图像滤波过滤器是数字网格的数学运算平滑、锐化、测量纹理 频域图像滤波器滤波是一种改变图像频率的方法去噪、采样、图像压缩 图像金字塔比例空间表示允许粗到细操作 图像滤波计算每个位置的局部邻域函数： h=output f=filter I=image k,l = 二维坐标 m,n = 二维坐标 一、box filter 盒式过滤器盒滤波器作用： 将每个像素替换为其邻域的平均值； 达到平滑效果（去除尖锐特征）。 图像滤波器作用： 增强图像去噪、调整大小、增加对比度等。 从图像中提取信息纹理、边缘、特征点等。 检测模式模板匹配 二、linear filters 线性滤波器没有变化按1像素左移垂直边缘（绝对值）水平边缘（绝对值）锐化滤波器——突出与当地平均水平的差异 三、Gaussian filter 高斯滤波器邻近像素的加权贡献 高斯滤波器的可分性可分性示例： 2D convolution (center location only)二维卷积（仅中心位置）The filter factors into a product of 1D filters:过滤因子为1的乘积：Perform convolution along rows:执行卷积长行：Followed by convolution along the remaining column:然后对其余列进行卷积：为什么分离性在实践中有用？ MXN图像，PXQ过滤器二维卷积：MNPQ乘加可分二维：MN（P+Q）乘加 加速=PQ/（P+Q）9x9过滤器大约快4.5倍 过滤器应该有多大？ 边缘处的值应接近零 高斯人有无限的范围… 高斯的经验法则：将滤波器半宽设为3σ左右]]></content>

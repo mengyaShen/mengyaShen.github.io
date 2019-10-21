@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="计算机视觉,">
 
 
 
@@ -83,13 +83,54 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Shenmy&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/categories/西瓜书学习笔记/index.html">
+<meta name="description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。  特征点用于：图像对齐三维重建运动跟踪（机器人、无人">
+<meta name="keywords" content="计算机视觉">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Computer Vision | InterestPointsAndCorners">
+<meta property="og:url" content="http://yoursite.com/9595090/index.html">
 <meta property="og:site_name" content="Shenmy&#39;s blog">
+<meta property="og:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。  特征点用于：图像对齐三维重建运动跟踪（机器人、无人">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170758603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170830103.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021173029342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021173315297.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019102117351932.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174002998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174213500.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174131367.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174136319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174315863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174347305.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174351550.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174417618.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174425553.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174802506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174957168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175019808.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175026323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175903515.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175919188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021180253238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021180455532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181006356.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019102118105049.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181054344.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181131589.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182240147.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182245879.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182316873.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182331318.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181909803.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181918399.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182344996.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182615936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-10-21T10:39:21.930Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shenmy&#39;s blog">
+<meta name="twitter:title" content="Computer Vision | InterestPointsAndCorners">
+<meta name="twitter:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。  特征点用于：图像对齐三维重建运动跟踪（机器人、无人">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
 
 
 
@@ -119,7 +160,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/西瓜书学习笔记/">
+  <link rel="canonical" href="http://yoursite.com/9595090/">
 
 
 
@@ -129,7 +170,7 @@
   <meta name="baidu-site-verification" content="d95YNHb1gF">
 
 
-  <title>分类: 西瓜书学习笔记 | Shenmy's blog</title>
+  <title>Computer Vision | InterestPointsAndCorners | Shenmy's blog</title>
   
 
 
@@ -158,7 +199,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -304,105 +345,289 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h2>西瓜书学习笔记<small>分类</small>
-        </h2>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/9595090/">
 
-      <h3 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Shen Mengya">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Shenmy's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/d6bdaab8/" itemprop="url">
-              
-                <span itemprop="name">西瓜书学习笔记 | 第16章 强化学习</span>
-              
-            </a>
         
-      </h3>
+          <h2 class="post-title" itemprop="name headline">Computer Vision | InterestPointsAndCorners</h2>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-14T19:48:31+08:00" content="2019-10-14">
-          10-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+		  
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T18:28:30+08:00">
+                2019-10-21
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/计算机视觉/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机视觉</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/9595090/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/9595090/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  788
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/a75704a9/" itemprop="url">
-              
-                <span itemprop="name">西瓜书学习笔记 | 第15章  规则学习</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-12T11:02:03+08:00" content="2019-10-12">
-          10-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h3 class="post-title">
-        
-            <a class="post-title-link" href="/5028c23a/" itemprop="url">
-              
-                <span itemprop="name">西瓜书学习笔记 | 第14章  概率图模型</span>
-              
-            </a>
-        
-      </h3>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-11T10:56:51+08:00" content="2019-10-11">
-          10-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>Filtering——&gt;Edges——&gt;Corners<br>滤波器——&gt;边沿——&gt;角点</p>
+<h1 id="Feature-points-特征点"><a href="#Feature-points-特征点" class="headerlink" title="Feature points 特征点"></a>Feature points 特征点</h1><p>也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。</p>
+<ol>
+<li><p>视图之间的通信<br>对应关系：在图像上匹配点、面片、边或区域。</p>
+</li>
+<li><p>特征点用于：<br>图像对齐<br>三维重建<br>运动跟踪（机器人、无人机、AR）<br>索引与数据库检索<br>目标识别</p>
+</li>
+<li><p>不变局部特征<br>检测可重复且独特的点。即，对图像变换不变性：<br>外观变化（亮度、照度）；<br>几何变化（平移、旋转、缩放）。</p>
+</li>
+<li><p>示例应用——全景接合<br>1）检测（Detection）：找到一组与众不同的关键点。<br>2）描述（Description）：提取每个兴趣点的特征描述作为向量。<br>3）匹配（Matching）：计算特征向量之间的距离以找到对应关系。</p>
+</li>
+<li><p>好的特征：<br>1）重复性<br>尽管存在几何和光度变换，但在多个图像中可以找到相同的特征。<br>2）显著性<br>每个特征都很独特。<br>3）紧凑性和效率<br>比图像像素少很多特征。<br>4）局部<br>一个特征占据了图像相对较小的区域；对杂波和遮挡鲁棒。</p>
+<h1 id="Corner-Detection-角点检测"><a href="#Corner-Detection-角点检测" class="headerlink" title="Corner Detection 角点检测"></a>Corner Detection 角点检测</h1><p>我们可以透过一扇小窗户来认识这一点。<br>我们希望窗口向任何方向移动，以使强度发生很大变化。<br><img src="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="基于自相关的角点检测"><a href="#基于自相关的角点检测" class="headerlink" title="基于自相关的角点检测"></a>基于自相关的角点检测</h2></li>
+<li><p>变换[u，v]：通过改变窗口w（x，y）的外观：<br><img src="https://img-blog.csdnimg.cn/20191021170758603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="基于自相关的角点检测"><br><img src="https://img-blog.csdnimg.cn/20191021170830103.png" alt="窗口函数"></p>
+</li>
+<li><p>关键特性：在拐角区域，图像梯度有两个或多个主方向角落是可重复和独特的。</p>
+</li>
+<li><p>用二次曲面局部逼近E（u，v）：<br><img src="https://img-blog.csdnimg.cn/20191021173029342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="用二次曲面局部逼近E（u，v）"></p>
+</li>
+<li><p>一个函数f可以用它在一个点a的无穷级数表示：<br><img src="https://img-blog.csdnimg.cn/20191021173315297.png" alt="无穷级数"><br>当我们关心窗口中心时，我们设置a=0（麦克劳林系列）。<br>f(x)＝e^x以f(0)为中心的逼近<br><img src="https://img-blog.csdnimg.cn/2019102117351932.png" alt="f(0)"></p>
+</li>
+</ol>
+<h2 id="角点检测：数学"><a href="#角点检测：数学" class="headerlink" title="角点检测：数学"></a>角点检测：数学</h2><ol start="5">
+<li><p>通过二阶泰勒展开给出了（0，0）邻域中E（u，v）的局部二次逼近：<br><img src="https://img-blog.csdnimg.cn/20191021174002998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E（u，v）的局部二次逼近"></p>
+</li>
+<li><p>E(u，v)关于(0,0)的二阶泰勒展开式：<br><img src="https://img-blog.csdnimg.cn/20191021174213500.png" alt="E(u，v)"><br><img src="https://img-blog.csdnimg.cn/20191021174131367.png" alt="E(u，v)关于(0,0)的二阶泰勒展开式"><br><img src="https://img-blog.csdnimg.cn/20191021174136319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E(u，v)关于(0,0)的二阶泰勒展开式"><br><img src="https://img-blog.csdnimg.cn/20191021174315863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E(u，v)关于(0,0)的二阶泰勒展开式"><br>二次近似简化为:<br><img src="https://img-blog.csdnimg.cn/20191021174347305.png" alt="二次近似"><br><img src="https://img-blog.csdnimg.cn/20191021174351550.png" alt="二次近似"><br>其中M是根据图像导数计算的二阶矩矩阵：<br><img src="https://img-blog.csdnimg.cn/20191021174417618.png" alt="M"><br><img src="https://img-blog.csdnimg.cn/20191021174425553.png" alt="M"></p>
+</li>
+</ol>
+<h2 id="角点作为独特的兴趣点："><a href="#角点作为独特的兴趣点：" class="headerlink" title="角点作为独特的兴趣点："></a>角点作为独特的兴趣点：</h2><ol start="7">
+<li>图像导数的2x 2矩阵（在点附近平均）<br><img src="https://img-blog.csdnimg.cn/20191021174802506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="矩阵"></li>
+</ol>
+<h2 id="二阶矩矩阵的解释"><a href="#二阶矩矩阵的解释" class="headerlink" title="二阶矩矩阵的解释"></a>二阶矩矩阵的解释</h2><ol start="8">
+<li>E(u,v)的形状：<br><img src="https://img-blog.csdnimg.cn/20191021174957168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>E(u,v)的水平“切片”：<img src="https://img-blog.csdnimg.cn/20191021175019808.png" alt="E(u,v)"><br><img src="https://img-blog.csdnimg.cn/20191021175026323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E(u,v)的水平“切片”"><br>M的对角化：<br><img src="https://img-blog.csdnimg.cn/20191021175903515.png" alt="M的对角化"><br>因此，E(u,v)的形状为椭圆<br><img src="https://img-blog.csdnimg.cn/20191021175919188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="基于M特征值的图像点分类"><a href="#基于M特征值的图像点分类" class="headerlink" title="基于M特征值的图像点分类"></a>基于M特征值的图像点分类</h2></li>
+<li>λ1 and λ2 很小，几乎在所有方向上都是恒定的。<br><img src="https://img-blog.csdnimg.cn/20191021180253238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="图像点分类"></li>
+<li><img src="https://img-blog.csdnimg.cn/20191021180455532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="图像点分类"><br><img src="https://img-blog.csdnimg.cn/20191021181006356.png" alt="C"><br>线性代数：<br><img src="https://img-blog.csdnimg.cn/2019102118105049.png" alt="线性代数"><br><img src="https://img-blog.csdnimg.cn/20191021181054344.png" alt="线性代数"><br><img src="https://img-blog.csdnimg.cn/20191021181131589.png" alt="在这里插入图片描述"></li>
+</ol>
+<h2 id="Harris-角点探测器"><a href="#Harris-角点探测器" class="headerlink" title="Harris 角点探测器"></a>Harris 角点探测器</h2><p>0）输入图像：我们要计算每个像素的M；<br><img src="https://img-blog.csdnimg.cn/20191021182240147.png" alt="Harris 角点探测器"><br>1）计算图像导数（可选，先模糊）；<br><img src="https://img-blog.csdnimg.cn/20191021182245879.png" alt="Harris 角点探测器"><br>2）用导数平方计算M分量；<br><img src="https://img-blog.csdnimg.cn/20191021182316873.png" alt="Harris 角点探测器"><br>3）宽度为σ的高斯滤波器g()；<br><img src="https://img-blog.csdnimg.cn/20191021182331318.png" alt="Harris 角点探测器"><br>4）计算转角<br><img src="https://img-blog.csdnimg.cn/20191021181909803.png" alt="C"><br><img src="https://img-blog.csdnimg.cn/20191021181918399.png" alt="C"><br>5）C上选择高转角的阈值<br>6）非极大值抑制拾取峰<br><img src="https://img-blog.csdnimg.cn/20191021182344996.png" alt="Harris 角点探测器"></p>
+<p>位置对光度变换是不变的，对几何变换是协变的吗？<br>不变性：图像被变换，角点位置不变；<br>协方差：如果我们有相同图像的两个变换版本，则应在相应位置检测特征。<br><img src="https://img-blog.csdnimg.cn/20191021182615936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="Harris 角点探测器"></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>我们一起来让这个世界有趣一点……ヽ(✿ﾟ▽ﾟ)ノ</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/uploads/wechat-reward-image.png" alt="Shen Mengya 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/uploads/alipay-reward-image.png" alt="Shen Mengya 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Shen Mengya
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/9595090/" title="Computer Vision | InterestPointsAndCorners">http://yoursite.com/9595090/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/968867f0/" rel="next" title="Computer Vision | ImageFiltering">
+                <i class="fa fa-chevron-left"></i> Computer Vision | ImageFiltering
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -410,6 +635,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -430,8 +662,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -522,6 +763,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Feature-points-特征点"><span class="nav-number">1.</span> <span class="nav-text">Feature points 特征点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Detection-角点检测"><span class="nav-number">2.</span> <span class="nav-text">Corner Detection 角点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于自相关的角点检测"><span class="nav-number">2.1.</span> <span class="nav-text">基于自相关的角点检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角点检测：数学"><span class="nav-number">2.2.</span> <span class="nav-text">角点检测：数学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角点作为独特的兴趣点："><span class="nav-number">2.3.</span> <span class="nav-text">角点作为独特的兴趣点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二阶矩矩阵的解释"><span class="nav-number">2.4.</span> <span class="nav-text">二阶矩矩阵的解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于M特征值的图像点分类"><span class="nav-number">2.5.</span> <span class="nav-text">基于M特征值的图像点分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harris-角点探测器"><span class="nav-number">2.6.</span> <span class="nav-text">Harris 角点探测器</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -679,6 +936,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
