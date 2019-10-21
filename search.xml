@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[查看远端地址 git remote -v时报错 fatal:not a git repository(or any of the parent directories):.git]]></title>
+    <url>%2Ff3333876%2F</url>
+    <content type="text"><![CDATA[查看git远端地址时： 1$ git remote –v 报错： 1fatal: not a git repository (or any of the parent directories): .git 提示说没有.git这样一个目录解决办法： 1$ git init ok啦！]]></content>
+      <categories>
+        <category>Hexo使用过程中出现的一些坑</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed]]></title>
+    <url>%2F708c56a%2F</url>
+    <content type="text"><![CDATA[在部署hexo执行下面代码时： 1$ hexo d 出现错误： 123456789On branch masternothing to commit, working tree cleangit@git.coding.net: Permission denied (publickey).fatal: Could not read from remote repository.Please make sure you have the correct access rightsand the repository exists.FATAL Something&apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.htmlError: Spawn failed 查了一些资料后发现是因为在设置百度主动推送的时候，站点配置文件中deploy:字段写错了。正确的应为： 123456deploy:- type: git repo: git@github.com:mengyaShen/mengyaShen.github.io.git branch: master- type: baidu_url_submitter 重新部署，成功。]]></content>
+      <categories>
+        <category>Hexo使用过程中出现的一些坑</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Computer Vision | Introduction]]></title>
     <url>%2Fed318fdc%2F</url>
     <content type="text"><![CDATA[一、计算视觉的经典问题Reconstruction——重建Recognition——识别(Re)organization——重组 Optical character recognition (OCR) 光学字符识别（OCR）Technology to convert scanned docs to text 扫描文档转换为文本的技术 Face detection 人脸检测 Smile detection 微笑检测 Object recognition (in supermarkets) 物体识别（超市） Vision-based biometrics 基于视觉的生物特征识别 Login without a password 无密码登录 Object recognition (in mobile phones) 物体识别（在移动电话中） 3D from images 三维图像 Human shape capture 人形捕捉 Special effects: shape capture 特殊效果：形状捕捉 Interactive Games: Kinect 互动游戏：Kinect Sports 体育运动 Medical imaging 医学影像学 AutoCars - Uber bought CMU’s lab 汽车制造商-Uber收购了CMU的实验室 Industrial robots 工业机器人 Vision in space 太空视野Vision systems (JPL) used for several tasks 用于多个任务的视觉系统（JPL） Mobile robots 移动机器人 Augmented Reality and Virtual Reality 增强现实与虚拟现实 二、计算机视觉及邻近领域 计算机视觉的贬义总结：机器学习在可视化数据中的应用。 图像处理、识别、深度学习、几何推理机器学习、图形学、计算摄影、光学机器人学、人机交互、医学影像学、神经科学 三、课程主题1.解释强度什么决定了像素的亮度和颜色？如何使用图像过滤器从图像中提取有意义的信息？ 2.对应和对齐如何在物体或场景中找到对应的点？我们如何估计它们之间的转换？ 3.分组和分段如何将像素分组成有意义的区域？ 4.分类与目标识别我们如何表现图像并对其进行分类？我们如何识别物体的类别？ 5.高级主题动作识别，三维场景和上下文，人在环视觉 6.相关知识线性代数、概率、图形课程、视觉/图像处理课程、机器学习 四、项目Projects 1-5: Structured conceptual / code——结构化概念/代码Project 6: Group challenge——团体挑战 Proj 1: Image Filtering and Hybrid Images——图像滤波和混合图像实现图像滤波以分离高频和低频。将来自不同图像的高频和低频合并以创建与比例相关的图像。 Proj 2: Local Feature Matching——局部特征匹配实现兴趣点检测、类sift局部特征描述、简单匹配算法。 Proj 3: Scene Recognition with Bag of Words——文字袋场景识别将局部特征量化为“词汇”，将图像描述为“视觉词汇”的直方图，训练分类器根据这些直方图识别场景。 Proj 3b: Object Detection with a Sliding Window——滑动窗口目标检测训练一个基于正样本和“挖掘”硬底片的人脸检测器，在多个尺度上检测人脸并抑制重复检测。 Proj 4: Convolutional Neural Nets——卷积神经网络Proj 5: Multi-view Geometry——多视图几何图形从特征点匹配恢复相机校准。计算机视觉中几乎所有测量的基础。 Proj 6: Group challenge——团体挑战改进webgazer：一个基于web的实时眼睛跟踪器。]]></content>
