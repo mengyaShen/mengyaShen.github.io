@@ -129,7 +129,7 @@
     <link href="http://yoursite.com/668be595/"/>
     <id>http://yoursite.com/668be595/</id>
     <published>2019-10-18T02:58:26.000Z</published>
-    <updated>2019-10-18T02:59:33.512Z</updated>
+    <updated>2019-10-21T08:35:26.780Z</updated>
     
     <content type="html"><![CDATA[<p>决策树的一个重要任务是：为了数据中蕴含的知识信息。<br>决策树可以使用不熟悉的数据集合，并从中提取除一系列规则，在这些机器根据数据集创建规则时，就是机器学习的过程。</p><h1 id="3-1-决策树的构造"><a href="#3-1-决策树的构造" class="headerlink" title="3.1 决策树的构造"></a>3.1 决策树的构造</h1><ol><li>优点：计算复杂度不高，输出结果易于理解，对中间值的缺失不敏感，可以处理不相关特征数据。<br>缺点：可能会产生过度匹配问题。<br>适用数据类型：数值型和标称型。</li><li>在构造决策树时，我们需要解决的第一个问题是：当前数据集上哪个特征在划分数据分类时起决定性作用。<br>为了找到决定性特征，划分出最好的结果，我们必须评估每个特征。<br>完成测试之后，原始数据集就被划分为几个数据子集。<br>这些数据子集会分布在第一个决策点的所有分支上。<br>如果某分支上的数据属于同一类型，无需进一步对数据集进行分割。<br>如果数据子集内的数据不属于同一类型，则需要重复划分数据子集。<br>直到所有具有相同数据类型的数据均在一个数据子集内。</li><li>创建分支的伪代码函数createBranch()：<br><img src="https://img-blog.csdnimg.cn/20191018101538240.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="创建分支的伪代码函数"></li><li>决策树的一般流程：<br>(1) 收集数据：可以使用任何方法。<br>(2) 准备数据：树构造算法只适用于标称型数据，因此数值型数据必须离散化。<br>(3) 分析数据：可以使用任何方法，构造树完成之后，我们应该检查图形是否符合预期。<br>(4) 训练算法：构造树的数据结构。<br>(5) 测试算法：使用经验树计算错误率。<br>(6) 使用算法：此步骤可以适用于任何监督学习算法，而使用决策树可以更好地理解数据<br>的内在含义。</li></ol><h2 id="3-3-1-信息增益"><a href="#3-3-1-信息增益" class="headerlink" title="3.3.1 信息增益"></a>3.3.1 信息增益</h2><ol start="5"><li>划分数据集的大原则：将无序的数据变得更加有序。</li><li>信息增益：划分数据集之前之后信息发生的变化。获得信息增益最高的特征就是最好的选择。</li><li>香农熵（熵）：集合信息的度量方式。</li><li>熵：定义为信息的期望值。</li><li>信息：符号xi的信息定义：<br><img src="https://img-blog.csdnimg.cn/20191018102957793.png" alt="信息"><br>其中p(xi)是选择该分类的概率。</li><li>信息熵：<img src="https://img-blog.csdnimg.cn/20191018103300857.png" alt="信息熵"><br>其中n是分类的数目。</li><li>基尼不纯度：度量集合无序程度的方法。简单的说就是从一个数据集中随机选取子项，度量其被错误分类到其他组里的概率。</li></ol><h2 id="3-1-2-划分数据集"><a href="#3-1-2-划分数据集" class="headerlink" title="3.1.2 划分数据集"></a>3.1.2 划分数据集</h2><ol start="12"><li>使用ID3算法划分数据集。<br>三组参数：待划分的数据集、划分数据集的特征、需要返回的特征的值。<h2 id="3-1-3-递归构建决策树"><a href="#3-1-3-递归构建决策树" class="headerlink" title="3.1.3 递归构建决策树"></a>3.1.3 递归构建决策树</h2></li><li>工作原理：得到原始数据集，然后基于最好的属性值划分数据集（由于特征值可能多余两个，因此可能存在大于两个分支的数据集划分）。第一次划分之后，数据被向下传递到树分支的下一个节点，在这个节点上，再次划分数据。递归进行。<br>递归结束的条件：程序遍历完所有划分数据集的属性，或者每个分支下的所有实例都具有相同的分类。如果所有实例具有相同的分类，则得到一个叶子节点或者终止块。</li></ol>]]></content>
     
@@ -144,7 +144,7 @@
     </summary>
     
     
-      <category term="机器学习实战学习笔记" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="机器学习实战" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/"/>
     
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
@@ -158,7 +158,7 @@
     <link href="http://yoursite.com/5f6e73d7/"/>
     <id>http://yoursite.com/5f6e73d7/</id>
     <published>2019-10-18T02:55:06.000Z</published>
-    <updated>2019-10-18T02:59:33.509Z</updated>
+    <updated>2019-10-21T08:35:36.985Z</updated>
     
     <content type="html"><![CDATA[<ol><li>工作原理：存在一个样本数据集合（也称作训练样本集），并且样本集中每个数据都存在标签（即我们知道样本中每一数据与所属分类的对应关系）。输入没有标签的新数据后，将新数据的特征值与样本中数据对应的特征值进行比较，然后算法提取样本集中特征最相似数据（最邻近）的分类标签。一般来说，我们只选择样本数据集中前k个最相似的数据，通常k是不大于20的整数。最后选择k个最相似数据中出现次数最多的分类，作为新数据的分类。</li><li>kNN算法伪代码：<br>对未知类别属性的数据集中的每个点依次执行以下操作：<br>（1）计算已知类别数据集中的点与当前点之间的距离；<br>（2）按照距离递增次序排序；<br>（3）选取与当前点距离最小的k个点；<br>（4）确定前k个点所在类别的出现频率；<br>（5）返回前k个点出现频率最高的类别作为当前点的预测分类。</li></ol>]]></content>
     
@@ -173,7 +173,7 @@
     </summary>
     
     
-      <category term="机器学习实战学习笔记" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="机器学习实战" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/"/>
     
     
       <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
