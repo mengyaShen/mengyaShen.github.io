@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Computer Vision | LocalImageFeaturesAndMatching]]></title>
+    <url>%2F5c655b74%2F</url>
+    <content type="text"><![CDATA[一、哈里斯角的不变性Harris Corners 哈里斯角结构矩阵：2. 结构矩阵： Affine intensity change 仿射强度变化仅使用导数=&gt;强度偏移I-&gt;I+b的不变性 强度缩放：I -&gt;a I Image translation 图像翻译导数和窗函数是平移不变的。 Image rotation 图像旋转 Scaling 缩放比例所有点都将被分类为边。角点位置与缩放不相关！ 到目前为止：可以在x-y中定位，但不能缩放。 二、特征点的“比例”Automatic Scale Selection 自动刻度选择 如何找到f响应相等的补丁大小？什么是好的f？增加标度的函数响应（标度特征）。 什么是有用的特征函数f？“Blob（斑点）”探测器常见于拐角处——高斯（LoG）的拉普拉斯（二阶导数） 在位置标度空间中求局部极大值 Alternative approach 替代方法高斯差分（DoG）近似LoG： Interest points 兴趣点关键点检测：可重复且独特角点（Corners）、斑点（blobs）、稳定区域（stable regions）哈里斯（Harris），DoG 选择兴趣点检测器 为什么选择？用更多的探测器收集更多的点，以便进行更多可能的匹配。 你想要干什么？x-y精确定位：Harris良好的尺度局部化：高斯差分（Difference of Gaussian）柔性区域形状：MSER 最佳选择通常取决于应用程序harris-/hessian-laplace/dog在许多自然类别中都很有效MSER适用于建筑和印刷品 三、Local Image Descriptors 局部图像描述局部特征：主要组件 Image representations 图像表示 模板：强度、阶级等。 直方图：颜色、纹理、SIFT描述符等。 图像表示：直方图（Histograms） 联合直方图（Joint histogram）需要大量数据避免空箱子的分辨率降低 边缘直方图（Marginal histogram）需要独立功能比联合直方图更多的数据（data）/bin 聚类（Clustering）：对所有图像使用相同的聚类中心 Computing histogram distance 计算直方图距离直方图相交（假设为标准化直方图） 直方图：实现问题 量化（Quantization）网格（Grids）：快速，但仅适用于很少的维度；聚类（Clustering）：速度较慢，但可以量化更高维度的数据。 匹配（Matching）直方图相交或欧几里德可能更快；卡方检验（Chi-squared）通常效果更好；当附近的bins代表相似的值时，土方运输机的距离（Earth mover’s distance）更有利。计算直方图的目的 颜色 模型局部外观 纹理 定向梯度的局部直方图 sift：尺度不变特征变换——非常受欢迎（4万条引用）SIFT描述符格式 在本地16 x 16窗口进行计算。 根据发现的方向θ和标度σ（增益不变性）旋转和缩放窗口。 计算由一半窗口的高斯方差加权的梯度（用于平滑衰减）。SIFT矢量形成梯度方向直方图的4x4数组，按梯度大小加权。按8个方向放置X 4x4阵列=128维。保证平滑度降低光源影响SIFT 高斯尺度空间极值的差分 后处理位置插值丢弃低对比度点沿边消除点 方位估计 描述符提取动机：我们希望对空间布局有一些敏感度，但不要太多，所以直方图块给了我们这些。SIFT定向规范化计算方向直方图；选择主导方向θ；规格化：旋转到固定方向。SIFT描述符提取给定具有比例和方向的关键点： 选取与估计尺度最接近的尺度空间图像； 重新采样图像以匹配方向或从矢量中减去检测器的方向，使图像旋转不变性。局部描述符：SURFSIFT思想的快速逼近：用2D盒滤波器和积分图像进行有效计算比SIFT快6倍物体识别的等效质量局部描述符 大多数特性可以看作是模板、直方图（计数）或组合。 理想的描述符应该是：强健有特色；紧凑高效。 大多数可用的描述符关注边缘/梯度信息：捕获纹理信息；很少使用的颜色。 四、Feature Matching 特征匹配Bijective 双射：Injective 内射Surjective 满射 Euclidean distance vs. Cosine Similarity 欧氏距离与余弦相似性Euclidean distance 欧氏距离 Cosine similarity 余弦 特征匹配的标准 标准1： 计算特征空间中的距离，例如128个Sift描述符之间的欧几里德距离 匹配点到最近距离（最近邻）问题：所有的东西都匹配吗？ 标准2： 计算特征空间中的距离，例如128个Sift描述符之间的欧几里德距离 匹配点到最近距离（最近邻） 忽略任何高于阈值的内容（不匹配！） 问题：6. 门槛难挑7. 不明显的特征可能有很多相似的匹配，只有一个是正确的 最近邻距离比 Interest points 兴趣点 关键点检测（Keypoint detection）：可重复且独特角点（Corners）、斑点（blobs）、稳定区域（stable regions）哈里斯（Harris），DoG 描述符（Descriptors）：健壮和选择性方位的空间直方图SIFT]]></content>
+      <categories>
+        <category>计算机视觉</category>
+      </categories>
+      <tags>
+        <tag>计算机视觉</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Computer Vision | InterestPointsAndCorners]]></title>
     <url>%2F9595090%2F</url>
     <content type="text"><![CDATA[Filtering——&gt;Edges——&gt;Corners滤波器——&gt;边沿——&gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。 视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机、AR）索引与数据库检索目标识别 不变局部特征检测可重复且独特的点。即，对图像变换不变性：外观变化（亮度、照度）；几何变化（平移、旋转、缩放）。 示例应用——全景接合1）检测（Detection）：找到一组与众不同的关键点。2）描述（Description）：提取每个兴趣点的特征描述作为向量。3）匹配（Matching）：计算特征向量之间的距离以找到对应关系。 好的特征：1）重复性尽管存在几何和光度变换，但在多个图像中可以找到相同的特征。2）显著性每个特征都很独特。3）紧凑性和效率比图像像素少很多特征。4）局部一个特征占据了图像相对较小的区域；对杂波和遮挡鲁棒。 Corner Detection 角点检测我们可以透过一扇小窗户来认识这一点。我们希望窗口向任何方向移动，以使强度发生很大变化。 基于自相关的角点检测 变换[u，v]：通过改变窗口w（x，y）的外观： 关键特性：在拐角区域，图像梯度有两个或多个主方向角落是可重复和独特的。 用二次曲面局部逼近E（u，v）： 一个函数f可以用它在一个点a的无穷级数表示：当我们关心窗口中心时，我们设置a=0（麦克劳林系列）。f(x)＝e^x以f(0)为中心的逼近 角点检测：数学 通过二阶泰勒展开给出了（0，0）邻域中E（u，v）的局部二次逼近： E(u，v)关于(0,0)的二阶泰勒展开式：二次近似简化为:其中M是根据图像导数计算的二阶矩矩阵： 角点作为独特的兴趣点 图像导数的2x 2矩阵（在点附近平均） 二阶矩矩阵的解释 E(u,v)的形状：E(u,v)的水平“切片”：M的对角化：因此，E(u,v)的形状为椭圆基于M特征值的图像点分类 λ1 and λ2 很小，几乎在所有方向上都是恒定的。 线性代数： Harris 角点探测器0）输入图像：我们要计算每个像素的M；1）计算图像导数（可选，先模糊）；2）用导数平方计算M分量；3）宽度为σ的高斯滤波器g()；4）计算转角5）C上选择高转角的阈值6）非极大值抑制拾取峰 位置对光度变换是不变的，对几何变换是协变的吗？不变性：图像被变换，角点位置不变；协方差：如果我们有相同图像的两个变换版本，则应在相应位置检测特征。]]></content>
@@ -41,8 +52,8 @@
         <category>Hexo使用过程中出现的一些坑</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
         <tag>git</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>

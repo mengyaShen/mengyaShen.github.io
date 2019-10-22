@@ -83,13 +83,13 @@
 
 
 
-<meta name="description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。  特征点用于：图像对齐三维重建运动跟踪（机器人、无人">
+<meta name="description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机">
 <meta name="keywords" content="计算机视觉">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Computer Vision | InterestPointsAndCorners">
 <meta property="og:url" content="http://yoursite.com/9595090/index.html">
 <meta property="og:site_name" content="Shenmy&#39;s blog">
-<meta property="og:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。  特征点用于：图像对齐三维重建运动跟踪（机器人、无人">
+<meta property="og:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170758603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
@@ -126,10 +126,10 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181918399.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182344996.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182615936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-10-21T10:43:43.305Z">
+<meta property="og:updated_time" content="2019-10-22T02:17:44.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Vision | InterestPointsAndCorners">
-<meta name="twitter:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。  特征点用于：图像对齐三维重建运动跟踪（机器人、无人">
+<meta name="twitter:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
 
 
@@ -486,17 +486,14 @@
         <p>Filtering——&gt;Edges——&gt;Corners<br>滤波器——&gt;边沿——&gt;角点</p>
 <h1 id="Feature-points-特征点"><a href="#Feature-points-特征点" class="headerlink" title="Feature points 特征点"></a>Feature points 特征点</h1><p>也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。</p>
 <ol>
-<li><p>视图之间的通信<br>对应关系：在图像上匹配点、面片、边或区域。</p>
-</li>
-<li><p>特征点用于：<br>图像对齐<br>三维重建<br>运动跟踪（机器人、无人机、AR）<br>索引与数据库检索<br>目标识别</p>
-</li>
-<li><p>不变局部特征<br>检测可重复且独特的点。即，对图像变换不变性：<br>外观变化（亮度、照度）；<br>几何变化（平移、旋转、缩放）。</p>
-</li>
-<li><p>示例应用——全景接合<br>1）检测（Detection）：找到一组与众不同的关键点。<br>2）描述（Description）：提取每个兴趣点的特征描述作为向量。<br>3）匹配（Matching）：计算特征向量之间的距离以找到对应关系。</p>
-</li>
-<li><p>好的特征：<br>1）重复性<br>尽管存在几何和光度变换，但在多个图像中可以找到相同的特征。<br>2）显著性<br>每个特征都很独特。<br>3）紧凑性和效率<br>比图像像素少很多特征。<br>4）局部<br>一个特征占据了图像相对较小的区域；对杂波和遮挡鲁棒。</p>
+<li>视图之间的通信<br>对应关系：在图像上匹配点、面片、边或区域。</li>
+<li>特征点用于：<br>图像对齐<br>三维重建<br>运动跟踪（机器人、无人机、AR）<br>索引与数据库检索<br>目标识别</li>
+<li>不变局部特征<br>检测可重复且独特的点。即，对图像变换不变性：<br>外观变化（亮度、照度）；<br>几何变化（平移、旋转、缩放）。</li>
+<li>示例应用——全景接合<br>1）检测（Detection）：找到一组与众不同的关键点。<br>2）描述（Description）：提取每个兴趣点的特征描述作为向量。<br>3）匹配（Matching）：计算特征向量之间的距离以找到对应关系。</li>
+<li>好的特征：<br>1）重复性<br>尽管存在几何和光度变换，但在多个图像中可以找到相同的特征。<br>2）显著性<br>每个特征都很独特。<br>3）紧凑性和效率<br>比图像像素少很多特征。<br>4）局部<br>一个特征占据了图像相对较小的区域；对杂波和遮挡鲁棒。</li>
+</ol>
 <h1 id="Corner-Detection-角点检测"><a href="#Corner-Detection-角点检测" class="headerlink" title="Corner Detection 角点检测"></a>Corner Detection 角点检测</h1><p>我们可以透过一扇小窗户来认识这一点。<br>我们希望窗口向任何方向移动，以使强度发生很大变化。<br><img src="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="基于自相关的角点检测"><a href="#基于自相关的角点检测" class="headerlink" title="基于自相关的角点检测"></a>基于自相关的角点检测</h2></li>
+<h2 id="基于自相关的角点检测"><a href="#基于自相关的角点检测" class="headerlink" title="基于自相关的角点检测"></a>基于自相关的角点检测</h2><ol>
 <li><p>变换[u，v]：通过改变窗口w（x，y）的外观：<br><img src="https://img-blog.csdnimg.cn/20191021170758603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="基于自相关的角点检测"><br><img src="https://img-blog.csdnimg.cn/20191021170830103.png" alt="窗口函数"></p>
 </li>
 <li><p>关键特性：在拐角区域，图像梯度有两个或多个主方向角落是可重复和独特的。</p>
@@ -609,6 +606,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/5c655b74/" rel="prev" title="Computer Vision | LocalImageFeaturesAndMatching">
+                Computer Vision | LocalImageFeaturesAndMatching <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -689,7 +690,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
