@@ -1685,7 +1685,7 @@ Optical character recognition (OCR) 光学字符识别（OCR）Technology to con
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  302
+                  1.8k
                 </span>
               
 
@@ -1712,8 +1712,9 @@ Optical character recognition (OCR) 光学字符识别（OCR）Technology to con
       
         
           
-          
-工作原理：存在一个样本数据集合（也称作训练样本集），并且样本集中每个数据都存在标签（即我们知道样本中每一数据与所属分类的对应关系）。输入没有标签的新数据后，将新数据的特征值与样本中数据对应的特征值进行比较，然后算法提取样本集中特征最相似数据（最邻近）的分类标签。一般来说，我们只选择样本数据集中前k
+          ==以下代码全部基于python3==
+一、k-临近算法概述
+工作原理：存在一个样本数据集合（也称作训练样本集），并且样本集中每个数据都存在标签（即我们知道样本中每一数据与所属分类的对应关系）。输入没有标签的新数据后，将新数据的特征值与样本中数据对应的特征值进行比较，然后算法提取样本集中特征最相似数
           ...
           <!--noindex-->
           <div class="post-button text-center">
