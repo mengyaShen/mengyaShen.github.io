@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2019-11-09T08:59:50.112Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://mengyashen.github.io/"/>
+  <updated>2019-11-09T09:33:26.079Z</updated>
+  <id>http://mengyashen.github.io/</id>
   
   <author>
     <name>Shen Mengya</name>
@@ -18,12 +18,12 @@
   
   <entry>
     <title>深度学习 | 感知机</title>
-    <link href="http://yoursite.com/c7c854c0/"/>
-    <id>http://yoursite.com/c7c854c0/</id>
+    <link href="http://mengyashen.github.io/c7c854c0/"/>
+    <id>http://mengyashen.github.io/c7c854c0/</id>
     <published>2019-11-09T08:54:40.000Z</published>
-    <updated>2019-11-09T08:59:50.112Z</updated>
+    <updated>2019-11-09T09:33:26.079Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="一、感知机是什么"><a href="#一、感知机是什么" class="headerlink" title="一、感知机是什么"></a>一、感知机是什么</h1><p>感知机是具有输入和输出的算法。给定一个输入后，将输出一个既定的值。<br><img src="https://img-blog.csdnimg.cn/20191109162350612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="两个输入的感知机"><br>x1、x2是输入信号，y是输出信号，w1、w2是权重（w是weight的首字母）。○称为“神经元”或者“节点”。<br>输入信号被送往神经元时，会被分别乘以固定的权重（w1x1、w2x2）。神经元会计算传送过来的信号的总和，只有当这个总和超过了某个界限值时，才会输出1。这也称为“神经元被激活”。这里将这个界限值称为阈值，用符号θ表示。<br><img src="https://img-blog.csdnimg.cn/20191109162325229.png" alt="感知机数学公式"></p><h1 id="二、简单逻辑电路（单层感知机）"><a href="#二、简单逻辑电路（单层感知机）" class="headerlink" title="二、简单逻辑电路（单层感知机）"></a>二、简单逻辑电路（单层感知机）</h1><h2 id="2-1-与门"><a href="#2-1-与门" class="headerlink" title="2.1 与门"></a>2.1 与门</h2><p><img src="https://img-blog.csdnimg.cn/2019110916254426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="与门"><br>参数的选择方法如：(w1, w2, θ) = (0.5, 0.5, 0.7)</p><h2 id="2-2-与非门"><a href="#2-2-与非门" class="headerlink" title="2.2 与非门"></a>2.2 与非门</h2><p><img src="https://img-blog.csdnimg.cn/20191109162630100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="与非门"><br>参数的选择方法如：(w1, w2, θ) = (−0.5, −0.5, −0.7)</p><h2 id="2-3-或门"><a href="#2-3-或门" class="headerlink" title="2.3 或门"></a>2.3 或门</h2><p><img src="https://img-blog.csdnimg.cn/20191109162708271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="或门"><br>参数的选择方法如：(w1, w2, θ) = (1.0, 1.0,−0.5)</p><p>与门、与非门、或门是单层感知机。</p><h1 id="三、多层感知机"><a href="#三、多层感知机" class="headerlink" title="三、多层感知机"></a>三、多层感知机</h1><h2 id="异或门"><a href="#异或门" class="headerlink" title="异或门"></a>异或门</h2><p><img src="https://img-blog.csdnimg.cn/20191109163555571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="异或门"><br>使用单层感知机无法实现异或门，需要“叠加层”。使用2层感知机。<br><img src="https://img-blog.csdnimg.cn/2019110916393365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="异或门"><br>s1作为与非门的输出，把s2作为或门的输出<br><img src="https://img-blog.csdnimg.cn/2019110916390665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="2层感知机"><br>1）第0层的两个神经元接收输入信号，并将信号发送至第1层的神经元。<br>2）第1层的神经元将信号发送至第2层的神经元，第2层的神经元输出y。</p><h1 id="四、权重和偏置"><a href="#四、权重和偏置" class="headerlink" title="四、权重和偏置"></a>四、权重和偏置</h1><p>将阈值θ换成−b，因此感知机的表示：<br><img src="https://img-blog.csdnimg.cn/20191109164539519.png" alt="感知机的表示"><br>b称为偏置，w1和w2称为权重。<br>感知机会计算输入信号和权重的乘积，然后加上偏置，如果这个值大于0则输出1，否则输出0。</p><h1 id="五、线性和非线性"><a href="#五、线性和非线性" class="headerlink" title="五、线性和非线性"></a>五、线性和非线性</h1><p>区分：能否用一条直线分割空间。<br><img src="https://img-blog.csdnimg.cn/20191109165919718.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="线性空间"><br>可以用一条直线将○和△分开，因此该空间为线性空间。<br><img src="https://img-blog.csdnimg.cn/20191109164959384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="非线性空间"><br>不能用一条直线将○和△分开（使用曲线可以分开），因此该空间为非线性空间。</p><h1 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h1><pre><code>• 感知机是具有输入和输出的算法。给定一个输入后，将输出一个既定的值。• 感知机将权重和偏置设定为参数。• 使用感知机可以表示与门和或门等逻辑电路。• 异或门无法通过单层感知机来表示。• 使用2层感知机可以表示异或门。• 单层感知机只能表示线性空间，而多层感知机可以表示非线性空间。• 多层感知机（在理论上）可以表示计算机。</code></pre>]]></content>
+    <content type="html"><![CDATA[<h1 id="一、感知机是什么"><a href="#一、感知机是什么" class="headerlink" title="一、感知机是什么"></a>一、感知机是什么</h1><p>感知机是具有输入和输出的算法。给定一个输入后，将输出一个既定的值。<br><img src="https://img-blog.csdnimg.cn/20191109162350612.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="两个输入的感知机"><br>x1、x2是输入信号，y是输出信号，w1、w2是权重（w是weight的首字母）。○称为“神经元”或者“节点”。<br>输入信号被送往神经元时，会被分别乘以固定的权重（w1x1、w2x2）。神经元会计算传送过来的信号的总和，只有当这个总和超过了某个界限值时，才会输出1。这也称为“神经元被激活”。这里将这个界限值称为阈值，用符号θ表示。<br><img src="https://img-blog.csdnimg.cn/20191109162325229.png" alt="感知机数学公式"></p><h1 id="二、简单逻辑电路（单层感知机）"><a href="#二、简单逻辑电路（单层感知机）" class="headerlink" title="二、简单逻辑电路（单层感知机）"></a>二、简单逻辑电路（单层感知机）</h1><h2 id="2-1-与门"><a href="#2-1-与门" class="headerlink" title="2.1 与门"></a>2.1 与门</h2><p><img src="https://img-blog.csdnimg.cn/2019110916254426.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="与门"><br>参数的选择方法如：(w1, w2, θ) = (0.5, 0.5, 0.7)</p><h2 id="2-2-与非门"><a href="#2-2-与非门" class="headerlink" title="2.2 与非门"></a>2.2 与非门</h2><p><img src="https://img-blog.csdnimg.cn/20191109162630100.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="与非门"><br>参数的选择方法如：(w1, w2, θ) = (−0.5, −0.5, −0.7)</p><h2 id="2-3-或门"><a href="#2-3-或门" class="headerlink" title="2.3 或门"></a>2.3 或门</h2><p><img src="https://img-blog.csdnimg.cn/20191109162708271.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="或门"><br>参数的选择方法如：(w1, w2, θ) = (1.0, 1.0,−0.5)</p><p>与门、与非门、或门是单层感知机。</p><h1 id="三、多层感知机"><a href="#三、多层感知机" class="headerlink" title="三、多层感知机"></a>三、多层感知机</h1><h2 id="异或门"><a href="#异或门" class="headerlink" title="异或门"></a>异或门</h2><p><img src="https://img-blog.csdnimg.cn/20191109163555571.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="异或门"><br>使用单层感知机无法实现异或门，需要“叠加层”。使用2层感知机。<br><img src="https://img-blog.csdnimg.cn/2019110916393365.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="异或门"><br>s1作为与非门的输出，把s2作为或门的输出<br><img src="https://img-blog.csdnimg.cn/2019110916390665.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="2层感知机"><br>1）第0层的两个神经元接收输入信号，并将信号发送至第1层的神经元。<br>2）第1层的神经元将信号发送至第2层的神经元，第2层的神经元输出y。</p><h1 id="四、权重和偏置"><a href="#四、权重和偏置" class="headerlink" title="四、权重和偏置"></a>四、权重和偏置</h1><p>将阈值θ换成−b，因此感知机的表示：<br><img src="https://img-blog.csdnimg.cn/20191109164539519.png" alt="感知机的表示"><br>b称为偏置，用于控制神经元被激活的容易程度。w1和w2称为权重。<br>感知机会计算输入信号和权重的乘积，然后加上偏置，如果这个值大于0则输出1，否则输出0。</p><h1 id="五、线性和非线性"><a href="#五、线性和非线性" class="headerlink" title="五、线性和非线性"></a>五、线性和非线性</h1><p>区分：能否用一条直线分割空间。<br><img src="https://img-blog.csdnimg.cn/20191109165919718.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="线性空间"><br>可以用一条直线将○和△分开，因此该空间为线性空间。<br><img src="https://img-blog.csdnimg.cn/20191109164959384.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="非线性空间"><br>不能用一条直线将○和△分开（使用曲线可以分开），因此该空间为非线性空间。</p><h1 id="六、小结"><a href="#六、小结" class="headerlink" title="六、小结"></a>六、小结</h1><pre><code>• 感知机是具有输入和输出的算法。给定一个输入后，将输出一个既定的值。• 感知机将权重和偏置设定为参数。• 使用感知机可以表示与门和或门等逻辑电路。• 异或门无法通过单层感知机来表示。• 使用2层感知机可以表示异或门。• 单层感知机只能表示线性空间，而多层感知机可以表示非线性空间。• 多层感知机（在理论上）可以表示计算机。</code></pre>]]></content>
     
     <summary type="html">
     
@@ -35,17 +35,17 @@
     </summary>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://mengyashen.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="深度学习" scheme="http://yoursite.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+      <category term="深度学习" scheme="http://mengyashen.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>Computer Vision | LocalImageFeaturesAndMatching</title>
-    <link href="http://yoursite.com/5c655b74/"/>
-    <id>http://yoursite.com/5c655b74/</id>
+    <link href="http://mengyashen.github.io/5c655b74/"/>
+    <id>http://mengyashen.github.io/5c655b74/</id>
     <published>2019-10-22T06:27:05.000Z</published>
     <updated>2019-10-22T06:30:23.359Z</updated>
     
@@ -61,17 +61,17 @@
     </summary>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
   </entry>
   
   <entry>
     <title>Computer Vision | InterestPointsAndCorners</title>
-    <link href="http://yoursite.com/9595090/"/>
-    <id>http://yoursite.com/9595090/</id>
+    <link href="http://mengyashen.github.io/9595090/"/>
+    <id>http://mengyashen.github.io/9595090/</id>
     <published>2019-10-21T10:28:30.000Z</published>
     <updated>2019-10-22T02:17:44.107Z</updated>
     
@@ -88,17 +88,17 @@
     </summary>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
   </entry>
   
   <entry>
     <title>Computer Vision | ImageFiltering</title>
-    <link href="http://yoursite.com/968867f0/"/>
-    <id>http://yoursite.com/968867f0/</id>
+    <link href="http://mengyashen.github.io/968867f0/"/>
+    <id>http://mengyashen.github.io/968867f0/</id>
     <published>2019-10-21T08:24:04.000Z</published>
     <updated>2019-10-21T08:31:58.420Z</updated>
     
@@ -114,17 +114,17 @@
     </summary>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
   </entry>
   
   <entry>
     <title>查看远端地址 git remote -v时报错 fatal:not a git repository(or any of the parent directories):.git</title>
-    <link href="http://yoursite.com/f3333876/"/>
-    <id>http://yoursite.com/f3333876/</id>
+    <link href="http://mengyashen.github.io/f3333876/"/>
+    <id>http://mengyashen.github.io/f3333876/</id>
     <published>2019-10-21T05:14:20.000Z</published>
     <updated>2019-10-21T05:15:45.856Z</updated>
     
@@ -141,17 +141,17 @@
     </summary>
     
     
-      <category term="Hexo使用过程中出现的一些坑" scheme="http://yoursite.com/categories/Hexo%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
+      <category term="Hexo使用过程中出现的一些坑" scheme="http://mengyashen.github.io/categories/Hexo%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
     
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="git" scheme="http://mengyashen.github.io/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed</title>
-    <link href="http://yoursite.com/708c56a/"/>
-    <id>http://yoursite.com/708c56a/</id>
+    <link href="http://mengyashen.github.io/708c56a/"/>
+    <id>http://mengyashen.github.io/708c56a/</id>
     <published>2019-10-21T05:04:59.000Z</published>
     <updated>2019-10-21T05:15:45.857Z</updated>
     
@@ -168,19 +168,19 @@
     </summary>
     
     
-      <category term="Hexo使用过程中出现的一些坑" scheme="http://yoursite.com/categories/Hexo%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
+      <category term="Hexo使用过程中出现的一些坑" scheme="http://mengyashen.github.io/categories/Hexo%E4%BD%BF%E7%94%A8%E8%BF%87%E7%A8%8B%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9D%91/"/>
     
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://mengyashen.github.io/tags/Hexo/"/>
     
-      <category term="git" scheme="http://yoursite.com/tags/git/"/>
+      <category term="git" scheme="http://mengyashen.github.io/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>Computer Vision | Introduction</title>
-    <link href="http://yoursite.com/ed318fdc/"/>
-    <id>http://yoursite.com/ed318fdc/</id>
+    <link href="http://mengyashen.github.io/ed318fdc/"/>
+    <id>http://mengyashen.github.io/ed318fdc/</id>
     <published>2019-10-21T02:51:47.000Z</published>
     <updated>2019-10-21T03:03:20.906Z</updated>
     
@@ -196,17 +196,17 @@
     </summary>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
     
-      <category term="计算机视觉" scheme="http://yoursite.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+      <category term="计算机视觉" scheme="http://mengyashen.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
     
   </entry>
   
   <entry>
     <title>机器学习实战 | 第3章 决策树</title>
-    <link href="http://yoursite.com/668be595/"/>
-    <id>http://yoursite.com/668be595/</id>
+    <link href="http://mengyashen.github.io/668be595/"/>
+    <id>http://mengyashen.github.io/668be595/</id>
     <published>2019-10-18T02:58:26.000Z</published>
     <updated>2019-10-29T11:31:32.779Z</updated>
     
@@ -223,21 +223,21 @@
     </summary>
     
     
-      <category term="机器学习实战" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/"/>
+      <category term="机器学习实战" scheme="http://mengyashen.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://mengyashen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://mengyashen.github.io/tags/python/"/>
     
-      <category term="Matplotlib" scheme="http://yoursite.com/tags/Matplotlib/"/>
+      <category term="Matplotlib" scheme="http://mengyashen.github.io/tags/Matplotlib/"/>
     
   </entry>
   
   <entry>
     <title>机器学习实战 | 第2章 k-临近算法</title>
-    <link href="http://yoursite.com/5f6e73d7/"/>
-    <id>http://yoursite.com/5f6e73d7/</id>
+    <link href="http://mengyashen.github.io/5f6e73d7/"/>
+    <id>http://mengyashen.github.io/5f6e73d7/</id>
     <published>2019-10-18T02:55:06.000Z</published>
     <updated>2019-10-23T13:37:14.807Z</updated>
     
@@ -255,19 +255,19 @@
     </summary>
     
     
-      <category term="机器学习实战" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/"/>
+      <category term="机器学习实战" scheme="http://mengyashen.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E6%88%98/"/>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://mengyashen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="python" scheme="http://yoursite.com/tags/python/"/>
+      <category term="python" scheme="http://mengyashen.github.io/tags/python/"/>
     
   </entry>
   
   <entry>
     <title>西瓜书学习笔记 | 第16章 强化学习</title>
-    <link href="http://yoursite.com/d6bdaab8/"/>
-    <id>http://yoursite.com/d6bdaab8/</id>
+    <link href="http://mengyashen.github.io/d6bdaab8/"/>
+    <id>http://mengyashen.github.io/d6bdaab8/</id>
     <published>2019-10-14T11:48:31.000Z</published>
     <updated>2019-10-14T12:23:39.913Z</updated>
     
@@ -284,19 +284,19 @@
     </summary>
     
     
-      <category term="西瓜书学习笔记" scheme="http://yoursite.com/categories/%E8%A5%BF%E7%93%9C%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="西瓜书学习笔记" scheme="http://mengyashen.github.io/categories/%E8%A5%BF%E7%93%9C%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://mengyashen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="西瓜书" scheme="http://yoursite.com/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/"/>
+      <category term="西瓜书" scheme="http://mengyashen.github.io/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>西瓜书学习笔记 | 第15章  规则学习</title>
-    <link href="http://yoursite.com/a75704a9/"/>
-    <id>http://yoursite.com/a75704a9/</id>
+    <link href="http://mengyashen.github.io/a75704a9/"/>
+    <id>http://mengyashen.github.io/a75704a9/</id>
     <published>2019-10-12T03:02:03.000Z</published>
     <updated>2019-10-14T06:35:15.611Z</updated>
     
@@ -313,19 +313,19 @@
     </summary>
     
     
-      <category term="西瓜书学习笔记" scheme="http://yoursite.com/categories/%E8%A5%BF%E7%93%9C%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="西瓜书学习笔记" scheme="http://mengyashen.github.io/categories/%E8%A5%BF%E7%93%9C%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://mengyashen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="西瓜书" scheme="http://yoursite.com/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/"/>
+      <category term="西瓜书" scheme="http://mengyashen.github.io/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>西瓜书学习笔记 | 第14章  概率图模型</title>
-    <link href="http://yoursite.com/5028c23a/"/>
-    <id>http://yoursite.com/5028c23a/</id>
+    <link href="http://mengyashen.github.io/5028c23a/"/>
+    <id>http://mengyashen.github.io/5028c23a/</id>
     <published>2019-10-11T02:56:51.000Z</published>
     <updated>2019-10-15T03:05:08.749Z</updated>
     
@@ -341,19 +341,19 @@
     </summary>
     
     
-      <category term="西瓜书学习笔记" scheme="http://yoursite.com/categories/%E8%A5%BF%E7%93%9C%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
+      <category term="西瓜书学习笔记" scheme="http://mengyashen.github.io/categories/%E8%A5%BF%E7%93%9C%E4%B9%A6%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://mengyashen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
-      <category term="西瓜书" scheme="http://yoursite.com/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/"/>
+      <category term="西瓜书" scheme="http://mengyashen.github.io/tags/%E8%A5%BF%E7%93%9C%E4%B9%A6/"/>
     
   </entry>
   
   <entry>
     <title>利用GitHub+hexo从零开始搭建个人博客</title>
-    <link href="http://yoursite.com/a13da74f/"/>
-    <id>http://yoursite.com/a13da74f/</id>
+    <link href="http://mengyashen.github.io/a13da74f/"/>
+    <id>http://mengyashen.github.io/a13da74f/</id>
     <published>2019-10-08T09:49:53.000Z</published>
     <updated>2019-10-13T11:56:50.142Z</updated>
     
@@ -369,20 +369,20 @@
     </summary>
     
     
-      <category term="GitHub" scheme="http://yoursite.com/categories/GitHub/"/>
+      <category term="GitHub" scheme="http://mengyashen.github.io/categories/GitHub/"/>
     
     
-      <category term="GitHub" scheme="http://yoursite.com/tags/GitHub/"/>
+      <category term="GitHub" scheme="http://mengyashen.github.io/tags/GitHub/"/>
     
-      <category term="Hexo" scheme="http://yoursite.com/tags/Hexo/"/>
+      <category term="Hexo" scheme="http://mengyashen.github.io/tags/Hexo/"/>
     
-      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+      <category term="Git" scheme="http://mengyashen.github.io/tags/Git/"/>
     
-      <category term="Node" scheme="http://yoursite.com/tags/Node/"/>
+      <category term="Node" scheme="http://mengyashen.github.io/tags/Node/"/>
     
-      <category term="SEO" scheme="http://yoursite.com/tags/SEO/"/>
+      <category term="SEO" scheme="http://mengyashen.github.io/tags/SEO/"/>
     
-      <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
+      <category term="Markdown" scheme="http://mengyashen.github.io/tags/Markdown/"/>
     
   </entry>
   
