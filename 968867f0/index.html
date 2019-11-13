@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021161210473.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021161225137.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191021161233292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-10-21T08:31:58.420Z">
+<meta property="og:updated_time" content="2019-11-13T08:48:11.294Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Computer Vision | ImageFiltering">
 <meta name="twitter:description" content="一张图片—&amp;gt;feature detection 特征检测（e.g.：DoG）—&amp;gt;feature description 特征描述（e.g.：SIFT）—&amp;gt;Matching/Indexing/Detection 匹配/索引/检测&amp;lt;—database of local  descriptors 本地描述符数据库 Image filtering 图像滤波过滤的三种观点：  空域">
@@ -381,8 +381,8 @@
 		  
 		    <span class="post-updated">
 			  &nbsp; | &nbsp; 更新于
-			  <time itemprop="dateUpdated" datetime="2019-10-21T16:31:58+08:00" content="2019-10-21">
-			    2019-10-21
+			  <time itemprop="dateUpdated" datetime="2019-11-13T16:48:11+08:00" content="2019-11-13">
+			    2019-11-13
 			  </time>
 		    </span>
 		  
@@ -474,11 +474,9 @@
         <p> 一张图片—&gt;feature detection 特征检测（e.g.：DoG）—&gt;feature description 特征描述（e.g.：SIFT）—&gt;Matching/Indexing/Detection 匹配/索引/检测&lt;—database of local  descriptors 本地描述符数据库</p>
 <h1 id="Image-filtering-图像滤波"><a href="#Image-filtering-图像滤波" class="headerlink" title="Image filtering 图像滤波"></a>Image filtering 图像滤波</h1><p>过滤的三种观点：</p>
 <ol>
-<li>空域图像滤波<br>过滤器是数字网格的数学运算<br>平滑、锐化、测量纹理<ol start="2">
+<li>空域图像滤波<br>过滤器是数字网格的数学运算<br>平滑、锐化、测量纹理</li>
 <li>频域图像滤波器<br>滤波是一种改变图像频率的方法<br>去噪、采样、图像压缩</li>
 <li>图像金字塔<br>比例空间表示允许粗到细操作</li>
-</ol>
-</li>
 </ol>
 <p>图像滤波<br>计算每个位置的局部邻域函数：<br><img src="https://img-blog.csdnimg.cn/20191021154040633.png" alt="局部邻域函数"><br>        h=output    f=filter    I=image<br>        k,l = 二维坐标   m,n = 二维坐标</p>
 <h2 id="一、box-filter-盒式过滤器"><a href="#一、box-filter-盒式过滤器" class="headerlink" title="一、box filter 盒式过滤器"></a>一、box filter 盒式过滤器</h2><p><img src="https://img-blog.csdnimg.cn/20191021154452465.png" alt="box filter"><br><img src="https://img-blog.csdnimg.cn/20191021154457545.png" alt="box filter"><br><img src="https://img-blog.csdnimg.cn/20191021154720446.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>盒滤波器作用：</p>
