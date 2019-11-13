@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="计算机视觉,">
+  <meta name="keywords" content="深度学习,">
 
 
 
@@ -83,54 +83,49 @@
 
 
 
-<meta name="description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机">
-<meta name="keywords" content="计算机视觉">
+<meta name="description" content="感知机：好消息，对于复杂的函数，感知机也隐含着能够表示它的可能性。即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，现在还是由人工进行的。神经网络：为了解决感知机的坏消息。神经网络的一个重要性质是它可以自动地从数据中学习到合适的权重参数。 1 从感知机到神经网络1.1 神经网络的例子：图中的网络一共由 3层神经元构成">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Computer Vision | InterestPointsAndCorners">
-<meta property="og:url" content="http://mengyashen.github.io/9595090/index.html">
+<meta property="og:title" content="深度学习 | 神经网络">
+<meta property="og:url" content="http://mengyashen.github.io/12e97368/index.html">
 <meta property="og:site_name" content="Shenmy&#39;s blog">
-<meta property="og:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机">
+<meta property="og:description" content="感知机：好消息，对于复杂的函数，感知机也隐含着能够表示它的可能性。即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，现在还是由人工进行的。神经网络：为了解决感知机的坏消息。神经网络的一个重要性质是它可以自动地从数据中学习到合适的权重参数。 1 从感知机到神经网络1.1 神经网络的例子：图中的网络一共由 3层神经元构成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170758603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021170830103.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021173029342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021173315297.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019102117351932.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174002998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174213500.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174131367.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174136319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174315863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174347305.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174351550.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174417618.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174425553.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174802506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021174957168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175019808.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175026323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175903515.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021175919188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021180253238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021180455532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181006356.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2019102118105049.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181054344.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181131589.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182240147.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182245879.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021184317821.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182331318.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181909803.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021181918399.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182344996.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20191021182615936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-10-22T02:17:44.107Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019110917293886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191111194603818.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191111194617902.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191111194815452.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191111195116111.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019111119505162.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019111215181041.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112151833735.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112152153258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112153028318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191111195116111.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112230057710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112155151104.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112230119669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112232757824.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191112233054429.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113102231769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019111310280960.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113103934594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113104540705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113104951928.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2019111310510351.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113105122157.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113110152873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113134134519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113134458317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113140451422.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113141546302.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113141258122.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191113142658613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2019-11-13T07:15:56.204Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Computer Vision | InterestPointsAndCorners">
-<meta name="twitter:description" content="Filtering——&amp;gt;Edges——&amp;gt;Corners滤波器——&amp;gt;边沿——&amp;gt;角点 Feature points 特征点也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。  视图之间的通信对应关系：在图像上匹配点、面片、边或区域。 特征点用于：图像对齐三维重建运动跟踪（机器人、无人机">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:title" content="深度学习 | 神经网络">
+<meta name="twitter:description" content="感知机：好消息，对于复杂的函数，感知机也隐含着能够表示它的可能性。即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，现在还是由人工进行的。神经网络：为了解决感知机的坏消息。神经网络的一个重要性质是它可以自动地从数据中学习到合适的权重参数。 1 从感知机到神经网络1.1 神经网络的例子：图中的网络一共由 3层神经元构成">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/2019110917293886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
 
 
 
@@ -160,7 +155,7 @@
 
 
 
-  <link rel="canonical" href="http://mengyashen.github.io/9595090/">
+  <link rel="canonical" href="http://mengyashen.github.io/12e97368/">
 
 
 
@@ -170,7 +165,7 @@
   <meta name="baidu-site-verification" content="d95YNHb1gF">
 
 
-  <title>Computer Vision | InterestPointsAndCorners | Shenmy's blog</title>
+  <title>深度学习 | 神经网络 | Shenmy's blog</title>
   
 
 
@@ -359,7 +354,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mengyashen.github.io/9595090/">
+    <link itemprop="mainEntityOfPage" href="http://mengyashen.github.io/12e97368/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shen Mengya">
@@ -376,7 +371,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Computer Vision | InterestPointsAndCorners</h2>
+          <h2 class="post-title" itemprop="name headline">深度学习 | 神经网络</h2>
         
 
         <div class="post-meta">
@@ -389,8 +384,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T18:28:30+08:00">
-                2019-10-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-13T15:14:15+08:00">
+                2019-11-13
               </time>
             
 
@@ -402,8 +397,8 @@
 		  
 		    <span class="post-updated">
 			  &nbsp; | &nbsp; 更新于
-			  <time itemprop="dateUpdated" datetime="2019-10-22T10:17:44+08:00" content="2019-10-22">
-			    2019-10-22
+			  <time itemprop="dateUpdated" datetime="2019-11-13T15:15:56+08:00" content="2019-11-13">
+			    2019-11-13
 			  </time>
 		    </span>
 		  
@@ -421,8 +416,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/计算机视觉/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机视觉</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -439,8 +434,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/9595090/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/9595090/" itemprop="commentCount"></span>
+                <a href="/12e97368/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/12e97368/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -467,7 +462,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  788
+                  2.6k
                 </span>
               
 
@@ -492,43 +487,61 @@
       
 
       
-        <p>Filtering——&gt;Edges——&gt;Corners<br>滤波器——&gt;边沿——&gt;角点</p>
-<h1 id="Feature-points-特征点"><a href="#Feature-points-特征点" class="headerlink" title="Feature points 特征点"></a>Feature points 特征点</h1><p>也称为兴趣点（interest points）、关键点（ key points）等，通常称为“局部”特征（ ‘local’ features）。</p>
-<ol>
-<li>视图之间的通信<br>对应关系：在图像上匹配点、面片、边或区域。</li>
-<li>特征点用于：<br>图像对齐<br>三维重建<br>运动跟踪（机器人、无人机、AR）<br>索引与数据库检索<br>目标识别</li>
-<li>不变局部特征<br>检测可重复且独特的点。即，对图像变换不变性：<br>外观变化（亮度、照度）；<br>几何变化（平移、旋转、缩放）。</li>
-<li>示例应用——全景接合<br>1）检测（Detection）：找到一组与众不同的关键点。<br>2）描述（Description）：提取每个兴趣点的特征描述作为向量。<br>3）匹配（Matching）：计算特征向量之间的距离以找到对应关系。</li>
-<li>好的特征：<br>1）重复性<br>尽管存在几何和光度变换，但在多个图像中可以找到相同的特征。<br>2）显著性<br>每个特征都很独特。<br>3）紧凑性和效率<br>比图像像素少很多特征。<br>4）局部<br>一个特征占据了图像相对较小的区域；对杂波和遮挡鲁棒。</li>
+        <p>感知机：好消息，对于复杂的函数，感知机也隐含着能够表示它的可能性。即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，现在还是由人工进行的。<br>神经网络：为了解决感知机的坏消息。神经网络的一个重要性质是它可以自动地从数据中学习到合适的权重参数。</p>
+<h1 id="1-从感知机到神经网络"><a href="#1-从感知机到神经网络" class="headerlink" title="1 从感知机到神经网络"></a>1 从感知机到神经网络</h1><h2 id="1-1-神经网络的例子："><a href="#1-1-神经网络的例子：" class="headerlink" title="1.1 神经网络的例子："></a>1.1 神经网络的例子：</h2><p><img src="https://img-blog.csdnimg.cn/2019110917293886.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="神经网路"><br>图中的网络一共由 3层神经元构成，但实质上只有 2层神经元有权重，因此将其称为“2层网络”。</p>
+<h2 id="1-2-感知机"><a href="#1-2-感知机" class="headerlink" title="1.2 感知机"></a>1.2 感知机</h2><p>未表示偏置：<br><img src="https://img-blog.csdnimg.cn/20191111194603818.png" alt="感知机"><br>感知机数学式（式1）：<br><img src="https://img-blog.csdnimg.cn/20191111194617902.png" alt="感知机数学式"><br>b：偏置，用于控制神经元被激活的容易程度；<br>w1和w2：各个信号的权重，用于控制各个信号的重要性。<br>改写（式2）：<img src="https://img-blog.csdnimg.cn/20191111194815452.png" alt="改写"><br>（式3）：<br><img src="https://img-blog.csdnimg.cn/20191111195116111.png" alt="h"><br>明确表示偏置：<br><img src="https://img-blog.csdnimg.cn/2019111119505162.png" alt="偏置"></p>
+<h1 id="2-激活函数"><a href="#2-激活函数" class="headerlink" title="2 激活函数"></a>2 激活函数</h1><ol>
+<li>激活函数：刚刚的h(x)函数会将输入信号的总和转换为输出信号，这种函数一般称为激活函数。</li>
+<li>激活函数的作用：决定如何来激活输入信号的总和。</li>
+<li>将式2再改写：<br>计算加权输入信号和偏置的总和，记为a（式4）：<br><img src="https://img-blog.csdnimg.cn/2019111215181041.png" alt="a"><br>用h()函数将a转换为输出y（式5）：<br><img src="https://img-blog.csdnimg.cn/20191112151833735.png" alt="y"><ol start="4">
+<li>明确显示激活函数的计算过程：<br><img src="https://img-blog.csdnimg.cn/20191112152153258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="明确显示激活函数的计算过程"></li>
 </ol>
-<h1 id="Corner-Detection-角点检测"><a href="#Corner-Detection-角点检测" class="headerlink" title="Corner Detection 角点检测"></a>Corner Detection 角点检测</h1><p>我们可以透过一扇小窗户来认识这一点。<br>我们希望窗口向任何方向移动，以使强度发生很大变化。<br><img src="https://img-blog.csdnimg.cn/20191021170444176.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="基于自相关的角点检测"><a href="#基于自相关的角点检测" class="headerlink" title="基于自相关的角点检测"></a>基于自相关的角点检测</h2><ol>
-<li><p>变换[u，v]：通过改变窗口w（x，y）的外观：<br><img src="https://img-blog.csdnimg.cn/20191021170758603.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="基于自相关的角点检测"><br><img src="https://img-blog.csdnimg.cn/20191021170830103.png" alt="窗口函数"></p>
 </li>
-<li><p>关键特性：在拐角区域，图像梯度有两个或多个主方向角落是可重复和独特的。</p>
+<li>“ 神经元=节点”，这里我们称a为y的节点。<br>激活函数的计算过程：<br><img src="https://img-blog.csdnimg.cn/20191112153028318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="激活函数的计算过程"></li>
+<li>激活函数是连接感知机和神经网络的<br>桥梁。</li>
+<li>感知机可分：<br>1） 朴素感知机：指单层网络，指的是激活函数使用了阶跃函数的模型。<br>2）多层感知机：指神经网络，即使用sigmoid函数等平滑的激活函数的多层网络。<h2 id="2-1-阶跃函数"><a href="#2-1-阶跃函数" class="headerlink" title="2.1  阶跃函数"></a>2.1  阶跃函数</h2><img src="https://img-blog.csdnimg.cn/20191111195116111.png" alt="h"><br>h(x)表示的激活函数以阈值为界，一旦输入超过了阈值，接切换输出，这样的函数称为“阶跃函数”。感知机中使用了阶跃函数作为激活函数。<br><img src="https://img-blog.csdnimg.cn/20191112230057710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="阶跃函数"><h2 id="2-2-sigmoid函数"><a href="#2-2-sigmoid函数" class="headerlink" title="2.2 sigmoid函数"></a>2.2 sigmoid函数</h2>（式6）：<br><img src="https://img-blog.csdnimg.cn/20191112155151104.png" alt="sigmoid函数"><br>函数就是给定某个输入后，会返回某个输出的转换器。<br>神经网络中用sigmoid函数作为激活函数，进行信号的转换，转换后的信号被传送给下一个神经元。<br>感知机和神经网络的主要区别就在于这个歌激活函数。<br><img src="https://img-blog.csdnimg.cn/20191112230119669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="sigmoid函数"><h2 id="2-3-sigmoid函数和阶跃函数的比较"><a href="#2-3-sigmoid函数和阶跃函数的比较" class="headerlink" title="2.3 sigmoid函数和阶跃函数的比较"></a>2.3 sigmoid函数和阶跃函数的比较</h2>不同：<br>1）平滑性：sigmoid函数是一条平滑的曲线，输出随着输入发生连续性的变化。而阶跃函数以0为界，输出发<br>生急剧性的变化。<br>2）于阶跃函数只能返回0或1，sigmoid函数可以返回0.731 …、0.880 …等实数。也就是说，感知机中神经元之间流动的是0或1的二元信号，而神经网络中流动的是连续的实数值信号。<br>相同：<br>1）它们具有相似的形状。<br>2）两者的结构均是“输入小时，输出接近0（为0）；随着输入增大，输出向1靠近（变成1）”<br>当输入信号为重要信息时，<br>阶跃函数和sigmoid函数都会输出较大的值；当输入信号为不重要的信息时，<br>两者都输出较小的值。<br>3），不管输入信号有多小，或者有多<br>大，输出信号的值都在0到1之间。</li>
+</ol>
+<h2 id="2-4-非线性函数"><a href="#2-4-非线性函数" class="headerlink" title="2.4 非线性函数"></a>2.4 非线性函数</h2><ol>
+<li>阶跃函数和sigmoid函数均为非线性函数。</li>
+<li>线性函数： 函数本来是输入某个值后会返回一个值的转换器。向这个转换器输入某个值后，输出值是输入值的常数倍的函数称为线性函数（用数学式表示为h(x) = cx。c为常数）。因此，线性函数是一条笔直的直线。</li>
+<li>非线性函数：不像线性函数那样呈现出一条直线的函数。</li>
+<li>神经网络的激活函数必须使用非线性函数。数不能使用线性函数，因为使用线性函数的话，加深神经网络的层数就没有意义了。</li>
+<li>线性函数的问题在于，不管如何加深层数，总是存在与之等效的“无隐藏层的神经网络”。<br>eg：把线性函数 h(x) = cx 作为激活函数，把y(x) = h(h(h(x)))的运算对应3层神经网络。这个运算会进行y(x) = c × c × c × x的乘法运算，但是同样的处理可以由y(x) = ax（注意，a = c 3）这一次乘法运算（即没有隐藏层的神经网络）来表示。</li>
+</ol>
+<h2 id="2-5-ReLU函数"><a href="#2-5-ReLU函数" class="headerlink" title="2.5 ReLU函数"></a>2.5 ReLU函数</h2><p>ReLU函数在输入大于0时，直接输出该值；在输入小于等于0时，输出0。<br>ReLU函数（式7）：<br><img src="https://img-blog.csdnimg.cn/20191112232757824.png" alt="relu"><br><img src="https://img-blog.csdnimg.cn/20191112233054429.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="relu"></p>
+<h1 id="3-多维数组的运算"><a href="#3-多维数组的运算" class="headerlink" title="3 多维数组的运算"></a>3 多维数组的运算</h1><p>多维数组就是“数字的集合”，数字排成一列的集合、排成长方形的集合、排成三维状或者（更加一般化的）N维状的集合都称为多维数组。</p>
+<h2 id="神经网络的内积"><a href="#神经网络的内积" class="headerlink" title="神经网络的内积"></a>神经网络的内积</h2><p>省略了偏置和激活函数，只有权重的神经网络：<br><img src="https://img-blog.csdnimg.cn/20191113102231769.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="神经网络的内积"></p>
+<h1 id="4-3层神经网络的实现"><a href="#4-3层神经网络的实现" class="headerlink" title="4 3层神经网络的实现"></a>4 3层神经网络的实现</h1><p><img src="https://img-blog.csdnimg.cn/2019111310280960.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="3层神经网络"></p>
+<h2 id="4-1-权重的符号："><a href="#4-1-权重的符号：" class="headerlink" title="4.1 权重的符号："></a>4.1 权重的符号：</h2><p><img src="https://img-blog.csdnimg.cn/20191113103934594.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="权重的符号"></p>
+<h2 id="4-2-各层间信号传递的实现"><a href="#4-2-各层间信号传递的实现" class="headerlink" title="4.2 各层间信号传递的实现"></a>4.2 各层间信号传递的实现</h2><p>从输入层到第1层的第1个神经元的信号传递过程：<br><img src="https://img-blog.csdnimg.cn/20191113104540705.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="第一层第一个神经元"><br>图中增加了表示偏置的神经元“1”。注意，偏置的右下角的索引号只有一个。这是因为前一层的偏置神经元（神经元“1”）只有一个 。<br>用数学式表示（式8）：<br><img src="https://img-blog.csdnimg.cn/20191113104951928.png" alt="a1"><br>用矩阵乘法表示（式9）：<br><img src="https://img-blog.csdnimg.cn/2019111310510351.png" alt="A1"><br><img src="https://img-blog.csdnimg.cn/20191113105122157.png" alt="AXBW"><br>从输入层到第1层的信号传递：<br><img src="https://img-blog.csdnimg.cn/20191113110152873.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="从输入层到第1层的信号传递"><br>隐藏层的加权和（加权信号和偏置的总和）用a表示，被激活函数转换后的信号用z表示。h()表示激活函数（这里使用的是sigmoid函数）。</p>
+<p>第1层到第2层的信号传递：<br><img src="https://img-blog.csdnimg.cn/20191113134134519.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="第1层到第2层的信号传递"><br>第1层的输出（Z1）变成了第2层的输入</p>
+<p>从第2层到输出层的信号传递：<br><img src="https://img-blog.csdnimg.cn/20191113134458317.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="从第2层到输出层的信号传递"></p>
+<pre><code>输出层所用的激活函数，要根据求解问题的性质决定。一般地，回归问题可以使用恒等函数，二元分类问题可以使用 sigmoid函数，多元分类问题可以使用softmax函数。</code></pre><h1 id="5-输出层的设计"><a href="#5-输出层的设计" class="headerlink" title="5 输出层的设计"></a>5 输出层的设计</h1><p>一般而言，回归问题用恒等函数，分类问题用softmax函数。<br>机器学习的问题大致可以分为分类问题和回归问题。<br>分类问题：是数据属于哪一个类别的问题。<br>比如，区分图像中的人是男性还是女性。<br>回归问题：是根据某个输入预测一个（连续的）数值的问题。<br>比如，根据一个人的图像预测这个人的体重。</p>
+<h2 id="5-1-恒等函数和softmax函数"><a href="#5-1-恒等函数和softmax函数" class="headerlink" title="5.1 恒等函数和softmax函数"></a>5.1 恒等函数和softmax函数</h2><ol>
+<li><p>恒等函数：会将输入按原样输出，对于输入的信息，不加以任何改动地直接输出。<br>恒等函数进行的转换处理可以用一根箭头来表示。<br><img src="https://img-blog.csdnimg.cn/20191113140451422.png" alt="恒等函数"></p>
 </li>
-<li><p>用二次曲面局部逼近E（u，v）：<br><img src="https://img-blog.csdnimg.cn/20191021173029342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="用二次曲面局部逼近E（u，v）"></p>
-</li>
-<li><p>一个函数f可以用它在一个点a的无穷级数表示：<br><img src="https://img-blog.csdnimg.cn/20191021173315297.png" alt="无穷级数"><br>当我们关心窗口中心时，我们设置a=0（麦克劳林系列）。<br>f(x)＝e^x以f(0)为中心的逼近<br><img src="https://img-blog.csdnimg.cn/2019102117351932.png" alt="f(0)"></p>
+<li><p>softmax函数（式10）：<br><img src="https://img-blog.csdnimg.cn/20191113141546302.png" alt="softmax"><br>输出通过箭头与所有的输入信号相连。输出层的各个神经元都受到所有输入信号的影响。<br><img src="https://img-blog.csdnimg.cn/20191113141258122.png" alt="softmax函数"></p>
 </li>
 </ol>
-<h2 id="角点检测：数学"><a href="#角点检测：数学" class="headerlink" title="角点检测：数学"></a>角点检测：数学</h2><ol start="5">
-<li><p>通过二阶泰勒展开给出了（0，0）邻域中E（u，v）的局部二次逼近：<br><img src="https://img-blog.csdnimg.cn/20191021174002998.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E（u，v）的局部二次逼近"></p>
-</li>
-<li><p>E(u，v)关于(0,0)的二阶泰勒展开式：<br><img src="https://img-blog.csdnimg.cn/20191021174213500.png" alt="E(u，v)"><br><img src="https://img-blog.csdnimg.cn/20191021174131367.png" alt="E(u，v)关于(0,0)的二阶泰勒展开式"><br><img src="https://img-blog.csdnimg.cn/20191021174136319.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E(u，v)关于(0,0)的二阶泰勒展开式"><br><img src="https://img-blog.csdnimg.cn/20191021174315863.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E(u，v)关于(0,0)的二阶泰勒展开式"><br>二次近似简化为:<br><img src="https://img-blog.csdnimg.cn/20191021174347305.png" alt="二次近似"><br><img src="https://img-blog.csdnimg.cn/20191021174351550.png" alt="二次近似"><br>其中M是根据图像导数计算的二阶矩矩阵：<br><img src="https://img-blog.csdnimg.cn/20191021174417618.png" alt="M"><br><img src="https://img-blog.csdnimg.cn/20191021174425553.png" alt="M"></p>
-</li>
+<h2 id="5-2-实现softmax函数时的注意事项"><a href="#5-2-实现softmax函数时的注意事项" class="headerlink" title="5.2 实现softmax函数时的注意事项"></a>5.2 实现softmax函数时的注意事项</h2><ol>
+<li>softmax函数在计算机运算时有一定缺陷，可能会产生”溢出问题“。指数运算值会很大，在超大值之间进行除法运算，结果会出现”不确定性“情况。</li>
+<li>计算机处理“数”时，数值必须在 4字节或 8字节的有限数据宽度内。可以表示的数值范围是有限的。因此，会出现超大值无法表示的问题。这个问题称为溢出。</li>
+<li>softtmax函数的改进（式11）：<br><img src="https://img-blog.csdnimg.cn/20191113142658613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="改进softmax"><br>这里的C‘可以使用任何值，但是为了防止溢出，一般会使用输入信号中的最大值。</li>
 </ol>
-<h2 id="角点作为独特的兴趣点"><a href="#角点作为独特的兴趣点" class="headerlink" title="角点作为独特的兴趣点"></a>角点作为独特的兴趣点</h2><ol start="7">
-<li>图像导数的2x 2矩阵（在点附近平均）<br><img src="https://img-blog.csdnimg.cn/20191021174802506.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="矩阵"></li>
+<h2 id="5-3-softmax函数的特征"><a href="#5-3-softmax函数的特征" class="headerlink" title="5.3 softmax函数的特征"></a>5.3 softmax函数的特征</h2><ol>
+<li>softmax函数的输出是0.0到1.0之间的实数。并且，softmax函数的输出值的总和是1（重要性质）。</li>
+<li>有了这个性质，我们把softmax函数的输出解释为“概率”。</li>
+<li>一般而言，神经网络只把输出值最大的神经元所对应的类别作为识别结果。<br>并且，即便使用softmax函数，输出值最大的神经元的位置也不会变。因此，神经网络在进行分类时，输出层的softmax函数可以省略。在实际的问题中，由于指数函数的运算需要一定的计算机运算量，因此输出层的softmax函数一般会被省略。</li>
+<li>求解机器学习问题的步骤可以分为“学习” 和“推理”两个阶段。<br>首先，在学习阶段进行模型的学习（这里的“学习”是指使用训练数据、自动调整参数的过程），然后，在推理阶段，用学到的模型对未知的数据进行推理（分类）。如前所述，推理阶段一般会省略输出层的 softmax函数。在输出层使用 softmax函数是因为它和神经网络的学习有关系。</li>
 </ol>
-<h2 id="二阶矩矩阵的解释"><a href="#二阶矩矩阵的解释" class="headerlink" title="二阶矩矩阵的解释"></a>二阶矩矩阵的解释</h2><ol start="8">
-<li>E(u,v)的形状：<br><img src="https://img-blog.csdnimg.cn/20191021174957168.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>E(u,v)的水平“切片”：<img src="https://img-blog.csdnimg.cn/20191021175019808.png" alt="E(u,v)"><br><img src="https://img-blog.csdnimg.cn/20191021175026323.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="E(u,v)的水平“切片”"><br>M的对角化：<br><img src="https://img-blog.csdnimg.cn/20191021175903515.png" alt="M的对角化"><br>因此，E(u,v)的形状为椭圆<br><img src="https://img-blog.csdnimg.cn/20191021175919188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><h2 id="基于M特征值的图像点分类"><a href="#基于M特征值的图像点分类" class="headerlink" title="基于M特征值的图像点分类"></a>基于M特征值的图像点分类</h2></li>
-<li>λ1 and λ2 很小，几乎在所有方向上都是恒定的。<br><img src="https://img-blog.csdnimg.cn/20191021180253238.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="图像点分类"></li>
-<li><img src="https://img-blog.csdnimg.cn/20191021180455532.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="图像点分类"><br><img src="https://img-blog.csdnimg.cn/20191021181006356.png" alt="C"><br>线性代数：<br><img src="https://img-blog.csdnimg.cn/2019102118105049.png" alt="线性代数"><br><img src="https://img-blog.csdnimg.cn/20191021181054344.png" alt="线性代数"><br><img src="https://img-blog.csdnimg.cn/20191021181131589.png" alt="在这里插入图片描述"></li>
-</ol>
-<h2 id="Harris-角点探测器"><a href="#Harris-角点探测器" class="headerlink" title="Harris 角点探测器"></a>Harris 角点探测器</h2><p>0）输入图像：我们要计算每个像素的M；<br><img src="https://img-blog.csdnimg.cn/20191021182240147.png" alt="Harris 角点探测器"><br>1）计算图像导数（可选，先模糊）；<br><img src="https://img-blog.csdnimg.cn/20191021182245879.png" alt="Harris 角点探测器"><br>2）用导数平方计算M分量；<br><img src="https://img-blog.csdnimg.cn/20191021184317821.png" alt="Harris 角点探测器"><br>3）宽度为σ的高斯滤波器g()；<br><img src="https://img-blog.csdnimg.cn/20191021182331318.png" alt="Harris 角点探测器"><br>4）计算转角<br><img src="https://img-blog.csdnimg.cn/20191021181909803.png" alt="C"><br><img src="https://img-blog.csdnimg.cn/20191021181918399.png" alt="C"><br>5）C上选择高转角的阈值<br>6）非极大值抑制拾取峰<br><img src="https://img-blog.csdnimg.cn/20191021182344996.png" alt="Harris 角点探测器"></p>
-<p>位置对光度变换是不变的，对几何变换是协变的吗？<br>不变性：图像被变换，角点位置不变；<br>协方差：如果我们有相同图像的两个变换版本，则应在相应位置检测特征。<br><img src="https://img-blog.csdnimg.cn/20191021182615936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="Harris 角点探测器"></p>
-
+<h2 id="5-4-输出层的神经元数量"><a href="#5-4-输出层的神经元数量" class="headerlink" title="5.4 输出层的神经元数量"></a>5.4 输出层的神经元数量</h2><p>输出层的神经元数量需要根据待解决的问题来决定。<br>分类问题：输出层的神经元数量一般设定为类别的数量</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本章介绍了神经网络的前向传播。</p>
+<pre><code>• 神经网络中的激活函数使用平滑变化的sigmoid函数或ReLU函数。
+• 通过巧妙地使用NumPy多维数组，可以高效地    实现神经网络。
+• 机器学习的问题大体上可以分为回归问题和分类问题。
+• 关于输出层的激活函数，回归问题中一般用恒等函数，分类问题中一般用softmax函数。
+• 分类问题中，输出层的神经元的数量设置为要分类的类别数。
+• 输入数据的集合称为批。通过以批为单位进行推理处理，能够实现高速的运算。</code></pre>
       
     </div>
     
@@ -577,7 +590,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://mengyashen.github.io/9595090/" title="Computer Vision | InterestPointsAndCorners">http://mengyashen.github.io/9595090/</a>
+    <a href="http://mengyashen.github.io/12e97368/" title="深度学习 | 神经网络">http://mengyashen.github.io/12e97368/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -592,7 +605,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/计算机视觉/" rel="tag"># 计算机视觉</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
       
@@ -605,8 +618,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/968867f0/" rel="next" title="Computer Vision | ImageFiltering">
-                <i class="fa fa-chevron-left"></i> Computer Vision | ImageFiltering
+              <a href="/c7c854c0/" rel="next" title="深度学习 | 感知机">
+                <i class="fa fa-chevron-left"></i> 深度学习 | 感知机
               </a>
             
           </div>
@@ -614,10 +627,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/5c655b74/" rel="prev" title="Computer Vision | LocalImageFeaturesAndMatching">
-                Computer Vision | LocalImageFeaturesAndMatching <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -783,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Feature-points-特征点"><span class="nav-number">1.</span> <span class="nav-text">Feature points 特征点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Corner-Detection-角点检测"><span class="nav-number">2.</span> <span class="nav-text">Corner Detection 角点检测</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于自相关的角点检测"><span class="nav-number">2.1.</span> <span class="nav-text">基于自相关的角点检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角点检测：数学"><span class="nav-number">2.2.</span> <span class="nav-text">角点检测：数学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#角点作为独特的兴趣点"><span class="nav-number">2.3.</span> <span class="nav-text">角点作为独特的兴趣点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二阶矩矩阵的解释"><span class="nav-number">2.4.</span> <span class="nav-text">二阶矩矩阵的解释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于M特征值的图像点分类"><span class="nav-number">2.5.</span> <span class="nav-text">基于M特征值的图像点分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Harris-角点探测器"><span class="nav-number">2.6.</span> <span class="nav-text">Harris 角点探测器</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-从感知机到神经网络"><span class="nav-number">1.</span> <span class="nav-text">1 从感知机到神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-神经网络的例子："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 神经网络的例子：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-感知机"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 感知机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-激活函数"><span class="nav-number">2.</span> <span class="nav-text">2 激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-阶跃函数"><span class="nav-number">2.1.</span> <span class="nav-text">2.1  阶跃函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-sigmoid函数"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 sigmoid函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-sigmoid函数和阶跃函数的比较"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 sigmoid函数和阶跃函数的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-非线性函数"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 非线性函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-ReLU函数"><span class="nav-number">2.5.</span> <span class="nav-text">2.5 ReLU函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-多维数组的运算"><span class="nav-number">3.</span> <span class="nav-text">3 多维数组的运算</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络的内积"><span class="nav-number">3.1.</span> <span class="nav-text">神经网络的内积</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-3层神经网络的实现"><span class="nav-number">4.</span> <span class="nav-text">4 3层神经网络的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-权重的符号："><span class="nav-number">4.1.</span> <span class="nav-text">4.1 权重的符号：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-各层间信号传递的实现"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 各层间信号传递的实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-输出层的设计"><span class="nav-number">5.</span> <span class="nav-text">5 输出层的设计</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-恒等函数和softmax函数"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 恒等函数和softmax函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-实现softmax函数时的注意事项"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 实现softmax函数时的注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-softmax函数的特征"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 softmax函数的特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-输出层的神经元数量"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 输出层的神经元数量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
 
           </div>
