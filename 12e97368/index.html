@@ -121,7 +121,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191113141546302.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191113141258122.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191113142658613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-11-13T07:25:28.795Z">
+<meta property="og:updated_time" content="2019-11-19T08:23:20.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习 | 神经网络">
 <meta name="twitter:description" content="感知机：好消息，对于复杂的函数，感知机也隐含着能够表示它的可能性。即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，现在还是由人工进行的。神经网络：为了解决感知机的坏消息。神经网络的一个重要性质是它可以自动地从数据中学习到合适的权重参数。 1 从感知机到神经网络1.1 神经网络的例子：图中的网络一共由 3层神经元构成">
@@ -397,8 +397,8 @@
 		  
 		    <span class="post-updated">
 			  &nbsp; | &nbsp; 更新于
-			  <time itemprop="dateUpdated" datetime="2019-11-13T15:25:28+08:00" content="2019-11-13">
-			    2019-11-13
+			  <time itemprop="dateUpdated" datetime="2019-11-19T16:23:20+08:00" content="2019-11-19">
+			    2019-11-19
 			  </time>
 		    </span>
 		  
@@ -501,7 +501,7 @@
 </li>
 <li><p>“ 神经元=节点”，这里我们称a为y的节点。<br>激活函数的计算过程：<br><img src="https://img-blog.csdnimg.cn/20191112153028318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="激活函数的计算过程"></p>
 </li>
-<li><p>激活函数是连接感知机和神经网络的<br>桥梁。</p>
+<li><p>激活函数是连接感知机和神经网络的桥梁。</p>
 </li>
 <li><p>感知机可分：<br>1） 朴素感知机：指单层网络，指的是激活函数使用了阶跃函数的模型。<br>2）多层感知机：指神经网络，即使用sigmoid函数等平滑的激活函数的多层网络。</p>
 </li>
@@ -534,7 +534,7 @@
 <h2 id="5-2-实现softmax函数时的注意事项"><a href="#5-2-实现softmax函数时的注意事项" class="headerlink" title="5.2 实现softmax函数时的注意事项"></a>5.2 实现softmax函数时的注意事项</h2><ol>
 <li>softmax函数在计算机运算时有一定缺陷，可能会产生”溢出问题“。指数运算值会很大，在超大值之间进行除法运算，结果会出现”不确定性“情况。</li>
 <li>计算机处理“数”时，数值必须在 4字节或 8字节的有限数据宽度内。可以表示的数值范围是有限的。因此，会出现超大值无法表示的问题。这个问题称为溢出。</li>
-<li>softtmax函数的改进（式11）：<br><img src="https://img-blog.csdnimg.cn/20191113142658613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="改进softmax"><br>这里的C‘可以使用任何值，但是为了防止溢出，一般会使用输入信号中的最大值。</li>
+<li>softmax函数的改进（式11）：<br><img src="https://img-blog.csdnimg.cn/20191113142658613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="改进softmax"><br>这里的C‘可以使用任何值，但是为了防止溢出，一般会使用输入信号中的最大值。</li>
 </ol>
 <h2 id="5-3-softmax函数的特征"><a href="#5-3-softmax函数的特征" class="headerlink" title="5.3 softmax函数的特征"></a>5.3 softmax函数的特征</h2><ol>
 <li>softmax函数的输出是0.0到1.0之间的实数。并且，softmax函数的输出值的总和是1（重要性质）。</li>
@@ -545,7 +545,7 @@
 <h2 id="5-4-输出层的神经元数量"><a href="#5-4-输出层的神经元数量" class="headerlink" title="5.4 输出层的神经元数量"></a>5.4 输出层的神经元数量</h2><p>输出层的神经元数量需要根据待解决的问题来决定。<br>分类问题：输出层的神经元数量一般设定为类别的数量</p>
 <h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>本章介绍了神经网络的前向传播。</p>
 <pre><code>• 神经网络中的激活函数使用平滑变化的sigmoid函数或ReLU函数。
-• 通过巧妙地使用NumPy多维数组，可以高效地    实现神经网络。
+• 通过巧妙地使用NumPy多维数组，可以高效地实现神经网络。
 • 机器学习的问题大体上可以分为回归问题和分类问题。
 • 关于输出层的激活函数，回归问题中一般用恒等函数，分类问题中一般用softmax函数。
 • 分类问题中，输出层的神经元的数量设置为要分类的类别数。
