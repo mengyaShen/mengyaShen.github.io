@@ -121,7 +121,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191113141546302.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191113141258122.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20191113142658613.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-11-19T08:23:20.488Z">
+<meta property="og:updated_time" content="2020-02-20T11:01:52.414Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习 | 神经网络">
 <meta name="twitter:description" content="感知机：好消息，对于复杂的函数，感知机也隐含着能够表示它的可能性。即便是计算机进行的复杂处理，感知机（理论上）也可以将其表示出来。坏消息，设定权重的工作，即确定合适的、能符合预期的输入与输出的权重，现在还是由人工进行的。神经网络：为了解决感知机的坏消息。神经网络的一个重要性质是它可以自动地从数据中学习到合适的权重参数。 1 从感知机到神经网络1.1 神经网络的例子：图中的网络一共由 3层神经元构成">
@@ -397,8 +397,8 @@
 		  
 		    <span class="post-updated">
 			  &nbsp; | &nbsp; 更新于
-			  <time itemprop="dateUpdated" datetime="2019-11-19T16:23:20+08:00" content="2019-11-19">
-			    2019-11-19
+			  <time itemprop="dateUpdated" datetime="2020-02-20T19:01:52+08:00" content="2020-02-20">
+			    2020-02-20
 			  </time>
 		    </span>
 		  
@@ -507,7 +507,7 @@
 </li>
 </ol>
 <h2 id="2-1-阶跃函数"><a href="#2-1-阶跃函数" class="headerlink" title="2.1  阶跃函数"></a>2.1  阶跃函数</h2><p><img src="https://img-blog.csdnimg.cn/20191111195116111.png" alt="h"><br>h(x)表示的激活函数以阈值为界，一旦输入超过了阈值，接切换输出，这样的函数称为“阶跃函数”。感知机中使用了阶跃函数作为激活函数。<br><img src="https://img-blog.csdnimg.cn/20191112230057710.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="阶跃函数"></p>
-<h2 id="2-2-sigmoid函数"><a href="#2-2-sigmoid函数" class="headerlink" title="2.2 sigmoid函数"></a>2.2 sigmoid函数</h2><p>（式6）：<br><img src="https://img-blog.csdnimg.cn/20191112155151104.png" alt="sigmoid函数"><br>函数就是给定某个输入后，会返回某个输出的转换器。<br>神经网络中用sigmoid函数作为激活函数，进行信号的转换，转换后的信号被传送给下一个神经元。<br>感知机和神经网络的主要区别就在于这个歌激活函数。<br><img src="https://img-blog.csdnimg.cn/20191112230119669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="sigmoid函数"></p>
+<h2 id="2-2-sigmoid函数"><a href="#2-2-sigmoid函数" class="headerlink" title="2.2 sigmoid函数"></a>2.2 sigmoid函数</h2><p>（式6）：<br><img src="https://img-blog.csdnimg.cn/20191112155151104.png" alt="sigmoid函数"><br>函数就是给定某个输入后，会返回某个输出的转换器。<br>神经网络中用sigmoid函数作为激活函数，进行信号的转换，转换后的信号被传送给下一个神经元。<br>感知机和神经网络的主要区别就在于这个激活函数。<br><img src="https://img-blog.csdnimg.cn/20191112230119669.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="sigmoid函数"></p>
 <h2 id="2-3-sigmoid函数和阶跃函数的比较"><a href="#2-3-sigmoid函数和阶跃函数的比较" class="headerlink" title="2.3 sigmoid函数和阶跃函数的比较"></a>2.3 sigmoid函数和阶跃函数的比较</h2><p>不同：<br>1）平滑性：sigmoid函数是一条平滑的曲线，输出随着输入发生连续性的变化。而阶跃函数以0为界，输出发<br>生急剧性的变化。<br>2）于阶跃函数只能返回0或1，sigmoid函数可以返回0.731 …、0.880 …等实数。也就是说，感知机中神经元之间流动的是0或1的二元信号，而神经网络中流动的是连续的实数值信号。<br>相同：<br>1）它们具有相似的形状。<br>2）两者的结构均是“输入小时，输出接近0（为0）；随着输入增大，输出向1靠近（变成1）”<br>当输入信号为重要信息时，<br>阶跃函数和sigmoid函数都会输出较大的值；当输入信号为不重要的信息时，<br>两者都输出较小的值。<br>3），不管输入信号有多小，或者有多<br>大，输出信号的值都在0到1之间。</p>
 <h2 id="2-4-非线性函数"><a href="#2-4-非线性函数" class="headerlink" title="2.4 非线性函数"></a>2.4 非线性函数</h2><ol>
 <li>阶跃函数和sigmoid函数均为非线性函数。</li>
@@ -636,6 +636,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/c7c854c0/" rel="prev" title="深度学习 | 感知机">
+                深度学习 | 感知机 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -716,7 +720,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
