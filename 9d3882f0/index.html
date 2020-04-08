@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,git,">
+  <meta name="keywords" content="深度学习,">
 
 
 
@@ -83,18 +83,47 @@
 
 
 
-<meta name="description" content="在部署hexo执行下面代码时： 1$ hexo d  出现错误： 123456789On branch masternothing to commit, working tree cleangit@git.coding.net: Permission denied (publickey).fatal: Could not read from remote repository.Please mak">
-<meta name="keywords" content="Hexo,git">
+<meta name="description" content="1. 计算图 计算图将计算过程用图形表示出来。这里说的图形是数据结构图，通过多个节点和边表示（连接节点的直线称为“边”）。  正向传播（forward propagation）：从左向右进行计算，传递的是计算结果。  反向传播（backward propagation）：是从右向左进行计算，传递的是局部导数。  局部计算：计算图的特征是可以通过传递“局部计算”获得最终结果。“局部”这个词的意思是“">
+<meta name="keywords" content="深度学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed">
-<meta property="og:url" content="http://mengyashen.github.io/708c56a/index.html">
+<meta property="og:title" content="深度学习 | （四）误差反向传播法">
+<meta property="og:url" content="http://mengyashen.github.io/9d3882f0/index.html">
 <meta property="og:site_name" content="Shenmy&#39;s blog">
-<meta property="og:description" content="在部署hexo执行下面代码时： 1$ hexo d  出现错误： 123456789On branch masternothing to commit, working tree cleangit@git.coding.net: Permission denied (publickey).fatal: Could not read from remote repository.Please mak">
+<meta property="og:description" content="1. 计算图 计算图将计算过程用图形表示出来。这里说的图形是数据结构图，通过多个节点和边表示（连接节点的直线称为“边”）。  正向传播（forward propagation）：从左向右进行计算，传递的是计算结果。  反向传播（backward propagation）：是从右向左进行计算，传递的是局部导数。  局部计算：计算图的特征是可以通过传递“局部计算”获得最终结果。“局部”这个词的意思是“">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-10-21T05:15:45.857Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222103228837.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222103515776.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222103646344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222103756877.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222104010845.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222104120933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222104702188.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222104815840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200222105622997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020022310295540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223104600805.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223104622363.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020022310481069.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223105253392.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223105446677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223150335997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223150400313.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223150533455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223150704272.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/2020022315125713.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200223151348165.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224102542531.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224102438325.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224103147356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224103710599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224114229723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224115927888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200224120157514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2020-04-08T02:05:36.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed">
-<meta name="twitter:description" content="在部署hexo执行下面代码时： 1$ hexo d  出现错误： 123456789On branch masternothing to commit, working tree cleangit@git.coding.net: Permission denied (publickey).fatal: Could not read from remote repository.Please mak">
+<meta name="twitter:title" content="深度学习 | （四）误差反向传播法">
+<meta name="twitter:description" content="1. 计算图 计算图将计算过程用图形表示出来。这里说的图形是数据结构图，通过多个节点和边表示（连接节点的直线称为“边”）。  正向传播（forward propagation）：从左向右进行计算，传递的是计算结果。  反向传播（backward propagation）：是从右向左进行计算，传递的是局部导数。  局部计算：计算图的特征是可以通过传递“局部计算”获得最终结果。“局部”这个词的意思是“">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200222103228837.png">
 
 
 
@@ -124,7 +153,7 @@
 
 
 
-  <link rel="canonical" href="http://mengyashen.github.io/708c56a/">
+  <link rel="canonical" href="http://mengyashen.github.io/9d3882f0/">
 
 
 
@@ -134,7 +163,7 @@
   <meta name="baidu-site-verification" content="d95YNHb1gF">
 
 
-  <title>部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed | Shenmy's blog</title>
+  <title>深度学习 | （四）误差反向传播法 | Shenmy's blog</title>
   
 
 
@@ -323,7 +352,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://mengyashen.github.io/708c56a/">
+    <link itemprop="mainEntityOfPage" href="http://mengyashen.github.io/9d3882f0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Shen Mengya">
@@ -340,7 +369,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed</h2>
+          <h2 class="post-title" itemprop="name headline">深度学习 | （四）误差反向传播法</h2>
         
 
         <div class="post-meta">
@@ -353,8 +382,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-21T13:04:59+08:00">
-                2019-10-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-24T12:30:29+08:00">
+                2020-02-24
               </time>
             
 
@@ -366,8 +395,8 @@
 		  
 		    <span class="post-updated">
 			  &nbsp; | &nbsp; 更新于
-			  <time itemprop="dateUpdated" datetime="2019-10-21T13:15:45+08:00" content="2019-10-21">
-			    2019-10-21
+			  <time itemprop="dateUpdated" datetime="2020-04-08T10:05:36+08:00" content="2020-04-08">
+			    2020-04-08
 			  </time>
 		    </span>
 		  
@@ -385,8 +414,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo使用过程中出现的一些坑/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo使用过程中出现的一些坑</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -403,8 +432,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/708c56a/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/708c56a/" itemprop="commentCount"></span>
+                <a href="/9d3882f0/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/9d3882f0/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -431,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  135
+                  2k
                 </span>
               
 
@@ -456,17 +485,45 @@
       
 
       
-        <p>在部署hexo执行下面代码时：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br></pre></td></tr></table></figure>
-
-<p>出现错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line">git@git.coding.net: Permission denied (publickey).</span><br><span class="line">fatal: Could not read from remote repository.</span><br><span class="line"></span><br><span class="line">Please make sure you have the correct access rights</span><br><span class="line">and the repository exists.</span><br><span class="line">FATAL Something&apos;s wrong. Maybe you can find the solution here: https://hexo.io/docs/troubleshooting.html</span><br><span class="line">Error: Spawn failed</span><br></pre></td></tr></table></figure>
-
-<p>查了一些资料后发现是因为在设置百度主动推送的时候，站点配置文件中deploy:字段写错了。<br>正确的应为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">- type: git</span><br><span class="line">  repo: </span><br><span class="line">      git@github.com:mengyaShen/mengyaShen.github.io.git</span><br><span class="line">  branch: master</span><br><span class="line">- type: baidu_url_submitter</span><br></pre></td></tr></table></figure>
-
-<p>重新部署，成功。</p>
-
+        <h1 id="1-计算图"><a href="#1-计算图" class="headerlink" title="1. 计算图"></a>1. 计算图</h1><ol>
+<li><p>计算图将计算过程用图形表示出来。这里说的图形是数据结构图，通过多个节点和边表示（连接节点的直线称为“边”）。</p>
+</li>
+<li><p>正向传播（forward propagation）：从左向右进行计算，传递的是计算结果。</p>
+</li>
+<li><p>反向传播（backward propagation）：是从右向左进行计算，传递的是局部导数。</p>
+</li>
+<li><p>局部计算：计算图的特征是可以通过传递“局部计算”获得最终结果。“局部”这个词的意思是“与自己相关的某个小范围”。局部计算是指，无论全局发生了什么，都能只根据与自己相关的信息输出接下来的结果。</p>
+</li>
+<li><p>计算图的优点：<br>①可以进行局部计算。<br>②计算图可以将中间的计算结果全部保存起来。<br>③可以通过反向传播高效计算导数。<br>综上，计算图的优点是，可以通过正向传播和反向传播高效地计算各个变量的导数值。</p>
+<h1 id="2-链式法则"><a href="#2-链式法则" class="headerlink" title="2. 链式法则"></a>2. 链式法则</h1><p><img src="https://img-blog.csdnimg.cn/20200222103228837.png" alt="计算图的反向传播"></p>
+</li>
+<li><p>链式法则是关于复合函数的导数的性质，定义如下：<br>如果某个函数由复合函数表示，则该复合函数的导数可以用构成复合函数的各个函数的导数的乘积表示。<br><img src="https://img-blog.csdnimg.cn/20200222103515776.png" alt="导数乘积"></p>
+</li>
+<li><p>链式法则和计算图<br><img src="https://img-blog.csdnimg.cn/20200222103646344.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="计算图"><br>最左边是反向传播的结果。<br><img src="https://img-blog.csdnimg.cn/20200222103756877.png" alt="链式法则"></p>
+<h1 id="3-反向传播"><a href="#3-反向传播" class="headerlink" title="3. 反向传播"></a>3. 反向传播</h1><h2 id="3-1-加法节点的反向传播"><a href="#3-1-加法节点的反向传播" class="headerlink" title="3.1 加法节点的反向传播"></a>3.1 加法节点的反向传播</h2><p><img src="https://img-blog.csdnimg.cn/20200222104010845.png" alt="加法"><br>加法节点的反向传播只乘以1，所以输入的值会原封不动地流向下一个节点。<br><img src="https://img-blog.csdnimg.cn/20200222104120933.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="加法节点"></p>
+<h2 id="3-2-乘法节点的反向传播"><a href="#3-2-乘法节点的反向传播" class="headerlink" title="3.2 乘法节点的反向传播"></a>3.2 乘法节点的反向传播</h2><p>考虑z=xy：<br><img src="https://img-blog.csdnimg.cn/20200222104702188.png" alt="乘法"><br>乘法的反向传播会将上游的值乘以正向传播时的输入信号的“翻转值”后传递给下游。翻转值表示一种翻转关系，如图所示，正向传播时信号是x的话，反向传播时则是y；正向传播时信号是y的话，反向传播时则是x。<br><img src="https://img-blog.csdnimg.cn/20200222104815840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="乘法"><br>加法的反向传播只是将上游的值传给下游，<br>并不需要正向传播的输入信号。但是，乘法的反向传播需要正向传播时的输入信号值。因此，实现乘法节点的反向传播时，要保存正向传播的输入信号。<br><img src="https://img-blog.csdnimg.cn/20200222105622997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="反向传播"><br><img src="https://img-blog.csdnimg.cn/2020022310295540.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="4-简单层的实现"><a href="#4-简单层的实现" class="headerlink" title="4. 简单层的实现"></a>4. 简单层的实现</h1><p>我们把要实现的计算图的乘法节点称为“乘法层”（MulLayer），加法节点称为“加法层”（AddLayer）。</p>
+<h1 id="5-激活函数层的实现"><a href="#5-激活函数层的实现" class="headerlink" title="5. 激活函数层的实现"></a>5. 激活函数层的实现</h1><h2 id="5-1-ReLU层"><a href="#5-1-ReLU层" class="headerlink" title="5.1 ReLU层"></a>5.1 ReLU层</h2><p>激活函数ReLU（Rectified Linear Unit）由下式表示：<br><img src="https://img-blog.csdnimg.cn/20200223104600805.png" alt="relu"><br>求出y关于x的导数：<br><img src="https://img-blog.csdnimg.cn/20200223104622363.png" alt="relu导数"><br>如果正向传播时的输入x大于0，则反向传播会将上游的值原封不动地传给下游。反过来，如果正向传播时的x小于等于0，则反向<br>传播中传给下游的信号将停在此处。<br><img src="https://img-blog.csdnimg.cn/2020022310481069.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="relu层计算图"><br>ReLU层的作用就像电路中的开关一样。正向传播时，有电流通过的话，就将开关设为 ON；没有电流通过的话，就将开关设为 OFF。<br>反向传播时，开关为ON的话，电流会直接通过；开关为OFF的话，则不会有电流通过。</p>
+<h2 id="5-2-Sigmoid层"><a href="#5-2-Sigmoid层" class="headerlink" title="5.2 Sigmoid层"></a>5.2 Sigmoid层</h2><p>sigmoid函数式：<br><img src="https://img-blog.csdnimg.cn/20200223105253392.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200223105446677.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="sigmoid层计算图"><br>除了“×”和“+”节点外，还出现了新的“exp”和“/”节点。“exp”节点会进行y = exp(x)的计算，“/”节点会进行y=1/x的计算。</p>
+</li>
+</ol>
+<p>反向传播的流程：<br><img src="https://img-blog.csdnimg.cn/20200223150335997.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200223150400313.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200223150533455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>反向传播的输出为<img src="https://img-blog.csdnimg.cn/20200223150704272.png" alt="在这里插入图片描述"> ，这个值会传播给下游的节点。<br><img src="https://img-blog.csdnimg.cn/2020022315125713.png" alt="在这里插入图片描述"><br>因此，Sigmoid层的反向传播，只根据正向传播的输出就能计算出来：<br><img src="https://img-blog.csdnimg.cn/20200223151348165.png" alt="在这里插入图片描述"></p>
+<h1 id="6-Affine-Softmax层的实现"><a href="#6-Affine-Softmax层的实现" class="headerlink" title="6. Affine/Softmax层的实现"></a>6. Affine/Softmax层的实现</h1><h2 id="6-1-Affine层"><a href="#6-1-Affine层" class="headerlink" title="6.1 Affine层"></a>6.1 Affine层</h2><ol>
+<li>神经网络的正向传播中，为了计算加权信号的总和，使用了矩阵的乘积运算。矩阵的乘积运算的要点是使对应维度的元素个数一致。</li>
+<li>仿射变换：神经网络的正向传播中进行的矩阵的乘积运算在几何学领域被称为“仿射变换”。</li>
+<li>Affine层：将进行仿射变换的处理实现为“Affine层“。<br>几何中，仿射变换包括一次线性变换和一次平移，分别对应神经网络的加权和运算与加偏置运算。<br><img src="https://img-blog.csdnimg.cn/20200224102542531.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200224102438325.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200224103147356.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="dot"><h2 id="6-2-批版本的Affine层"><a href="#6-2-批版本的Affine层" class="headerlink" title="6.2 批版本的Affine层"></a>6.2 批版本的Affine层</h2>前面介绍的Affine层的输入X是以单个数据为对象的。现在我们考虑N个数据一起进行正向传播的情况，也就是批版本的Affine层。<br><img src="https://img-blog.csdnimg.cn/20200224103710599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="批版本的Affine层"><h2 id="6-3-Softmax-with-Loss-层"><a href="#6-3-Softmax-with-Loss-层" class="headerlink" title="6.3 　Softmax-with-Loss 层"></a>6.3 　Softmax-with-Loss 层</h2><img src="https://img-blog.csdnimg.cn/20200224114229723.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="softmax"></li>
+<li>神经网络中进行的处理有推理（inference）和学习两个阶段。<br>神经网络的推理通常不使用 Softmax层。<br>神经网络的学习阶段则需要 Softmax层。</li>
+<li>包含作为损失函数的交叉熵误差（cross entropy error），所以称为“Softmax-with-Loss层”。</li>
+<li>Softmax-with-Loss层的计算图：<img src="https://img-blog.csdnimg.cn/20200224115927888.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="Softmax-with-Loss层的计算图"><br>softmax函数记为Softmax层，交叉熵误差记为Cross Entropy Error层。这里假设要进行3类分类，从前面的层接收3个输入（得分）。如图5-30所示，Softmax层将输入（a1, a2, a3）正规化，输出（y1, y2,y3）。Cross Entropy Error层接收Softmax的输出（y1, y2, y3）和教师标签（t1, t2, t3），从这些数据中输出损失L。</li>
+<li>　“简易版”的Softmax-with-Loss层的计算图：<img src="https://img-blog.csdnimg.cn/20200224120157514.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1NoZW5fX18=,size_16,color_FFFFFF,t_70" alt="　“简易版”的Softmax-with-Loss层的计算图"><br>Softmax层的反向传播得到了（y1 − t1, y2 − t2, y3 − t3）这样“漂亮”的结果。由于（y1, y2, y3）是Softmax层的输出，（t1, t2, t3）是监督数据，所以（y1 − t1, y2 − t2, y3 − t3）是Softmax层的输出和教师标签的差分。神经网络的反向传播会把这个差分表示的误差传递给前面的层，这是神经网络学习中的重要性质。</li>
+<li>神经网络学习的目的就是通过调整权重参数，使神经网络的输出（Softmax的输出）接近教师标签。<h1 id="7-误差反向传播法的实现"><a href="#7-误差反向传播法的实现" class="headerlink" title="7. 误差反向传播法的实现"></a>7. 误差反向传播法的实现</h1>神经网络学习的步骤：<br>前提<br>神经网络中有合适的权重和偏置，调整权重和偏置以便拟合训练数据的<br>过程称为学习。神经网络的学习分为下面4个步骤。<br>步骤1（mini-batch）<br>从训练数据中随机选择一部分数据。<br>步骤2（计算梯度）<br>计算损失函数关于各个权重参数的梯度。<br>步骤3（更新参数）<br>将权重参数沿梯度方向进行微小的更新。<br>步骤4（重复）<br>重复步骤1、步骤2、步骤3。</li>
+</ol>
+<p>计算梯度的两种方法：一种是基于数值微分的方法，另一种是解析性地求解数学式的方法。<br>数值微分虽然实现简单，但是计算要耗费较多的时间。和需要花费较多时间的数值微分不同，误差反向传播法可以快速高效地计算梯度。<br>数值微分的优点是实现简单，因此，一般情况下不太容易出错。而误差反向传播法的实现很复杂，容易出错。所以，经常会比较数值微分的结果和误差反向传播法的结果，以确认误差反向传播法的实现是否正确。确认数值微分求出的梯度结果和误差反向传播法求出的结果是否一致（严格地讲，是非常相近）的操作称为梯度确认（gradient check）。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><pre><code>• 通过使用计算图，可以直观地把握计算过程
+•计算图的节点是由局部计算构成的。局部计算构成全局计算。
+•计算图的正向传播进行一般的计算。通过计算图的反向传播，可以计算各个节点的导数。
+•通过将神经网络的组成元素实现为层，可以高效地计算梯度*（反向传播法）。
+•通过比较数值微分和误差反向传播的结果，可以确认误差反向传播的实现是否正确（梯度确认）。</code></pre>
       
     </div>
     
@@ -515,7 +572,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://mengyashen.github.io/708c56a/" title="部署hexo时出错：fatal: Could not read from remote repository.Error: Spawn failed">http://mengyashen.github.io/708c56a/</a>
+    <a href="http://mengyashen.github.io/9d3882f0/" title="深度学习 | （四）误差反向传播法">http://mengyashen.github.io/9d3882f0/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -530,9 +587,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-          
-            <a href="/tags/git/" rel="tag"># git</a>
+            <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
         </div>
       
@@ -545,8 +600,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/ed318fdc/" rel="next" title="Computer Vision | Introduction">
-                <i class="fa fa-chevron-left"></i> Computer Vision | Introduction
+              <a href="/6599512/" rel="next" title="深度学习 | （三）神经网络的学习">
+                <i class="fa fa-chevron-left"></i> 深度学习 | （三）神经网络的学习
               </a>
             
           </div>
@@ -555,8 +610,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/f3333876/" rel="prev" title="查看远端地址 git remote -v时报错 fatal:not a git repository(or any of the parent directories):.git">
-                查看远端地址 git remote -v时报错 fatal:not a git repository(or any of the parent directories):.git <i class="fa fa-chevron-right"></i>
+              <a href="/7e55adb7/" rel="prev" title="深度学习 | （五）卷积神经网络">
+                深度学习 | （五）卷积神经网络 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -612,8 +667,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -704,6 +768,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-计算图"><span class="nav-number">1.</span> <span class="nav-text">1. 计算图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-链式法则"><span class="nav-number">2.</span> <span class="nav-text">2. 链式法则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-反向传播"><span class="nav-number">3.</span> <span class="nav-text">3. 反向传播</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-加法节点的反向传播"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 加法节点的反向传播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-乘法节点的反向传播"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 乘法节点的反向传播</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-简单层的实现"><span class="nav-number">4.</span> <span class="nav-text">4. 简单层的实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-激活函数层的实现"><span class="nav-number">5.</span> <span class="nav-text">5. 激活函数层的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-ReLU层"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 ReLU层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-Sigmoid层"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 Sigmoid层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-Affine-Softmax层的实现"><span class="nav-number">6.</span> <span class="nav-text">6. Affine/Softmax层的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-Affine层"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 Affine层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-批版本的Affine层"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 批版本的Affine层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-Softmax-with-Loss-层"><span class="nav-number">6.3.</span> <span class="nav-text">6.3 　Softmax-with-Loss 层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-误差反向传播法的实现"><span class="nav-number">7.</span> <span class="nav-text">7. 误差反向传播法的实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#小结"><span class="nav-number">8.</span> <span class="nav-text">小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
